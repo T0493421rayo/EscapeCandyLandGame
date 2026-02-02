@@ -1,14 +1,14 @@
 <style>
 </style>
 
-| Module Code            | IY453                           |
-| ---------------------- | ------------------------------- |
-| Group                  | A                               |
+| Module Code            | IY453                              |
+| ---------------------- | ---------------------------------- |
+| Group                  | A                                  |
 | Module Title           | Software Design and Implementation |
-| Assessment<br> Type    | Coursework Stage 1              |
-| Module Tutor<br> Name  | Mustafa<br> Ghashim             |
-| Student ID<br> Number  | P493421                         |
-| Date of<br> Submission | 29/1/26                         |
+| Assessment<br> Type    | Coursework Stage 1                 |
+| Module Tutor<br> Name  | Mustafa<br> Ghashim                |
+| Student ID<br> Number  | P493421                            |
+| Date of<br> Submission | 29/1/26                            |
 
 ☒ *I confirm that this assignment is my own work. Where I have
 referred to academic sources, I have provided in-text citations and included
@@ -39,8 +39,6 @@ An inventory design to collect,save and view weapons.
 Each player can encounter various gears. For example: weapons for combat and food for health and clothing for restoration.
 
 Each one of those should create an effect on the player's stats and health necessary to have an effect on the player's combat and unlocking new routes etc.
-
-
 
 **Save and Resume Functionality:**
 
@@ -101,11 +99,19 @@ Input Process Output Table
 <style>
 </style>
 
-| Task                                              | Input                      | Process                                                                                                                    | Output                                                                                      |
-| ------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Begin game                                        | Menu choice                | Processes the<br> player’s choice                                                                                          | New game or exit<br> game or view previous games.                                           |
-| Start a new game                                  | Player’s gaming<br> name   | Saves player’s<br> name to memory and allows personalization in user’s interface                                           | Integrated<br> personalized dialogue message.                                               |
-| View previous game                                | Name of previous<br> game  | Checks memory for<br> previous game                                                                                        | Displays previous<br> game.                                                                 |
-| Play game                                         | Binary choice              | Processes the<br> choice and locates the route.                                                                            | Displays the puzzle<br> based scenario, combat scenario or item collection scenario.        |
-| Puzzle(riddles,anagrams<br> or math based puzzle) | Puzzle answer              | Check if puzzle answer<br> is the same as stored program answer, update the score system and check for<br> the next route. | Display a personalized<br> message if correct or wrong , updated core system and next route |
-| Combat                                            | Player’s combat<br> action | Check player’s health<br> and stats                                                                                        |                                                                                             |
+| Task                                              | Input                                          | Process                                                                                                                                                    | Output                                                                                                                              |
+| ------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Begin game                                        | Player selects "begin game" from menu          | Processes and load's player's health board, stats.                                                                                                         | First game scene and a welcome text.                                                                                                |
+| Personalization of the game                       | Player’s gaming<br> name                       | Saves player’s<br> name to memory and allows personalization in user’s interface                                                                           | Integrated<br> personalized dialogue message.                                                                                       |
+| Displays first game/story scene                   | Game state                                     | Checks memory for game description and choices                                                                                                             | Game text and binary options shown.                                                                                                 |
+| Select a choice from binary option                | Player enters (1 or 2)                         | Check if player enters 1 or 2 and processes the next story scene                                                                                           | Choice is either 1 or 2, the next story scene is shown if not an error message                                                      |
+| Error Validation                                  | Non numeric input                              | Processes error and reprompts prayer                                                                                                                       | Error message and previous prompt                                                                                                   |
+| Puzzle(riddles,anagrams<br> or math based puzzle) | Puzzle answer                                  | Check if puzzle answer<br> is the same as stored program answer, update the score system and check for<br> the next route.                                 | Display a personalized<br> message if correct or wrong , updated core system and next route                                         |
+| Combat                                            | Player’s combat<br> action                     | Enable battle influenecd by player's inventory and health,calculate damage, update health, score board and determine the winner and locate the next route. | Display a peronalized message  depending on whether successful or not, display score board and health stats and next step or route. |
+| Item collection                                   | Player picks up  item(weapon,food or clothing) | Item is added to inventory                                                                                                                                 | Display a personalized message and an inventory with the item added inside.                                                         |
+| View item inventory                               | Player selects view inventory                  | Checks memory for items in inventory                                                                                                                       | Displays items                                                                                                                      |
+| Use item                                          | Player selects item                            | Review the item effects based on whether it's clothing,food or weapon and updates stats                                                                    | Updated player's stats                                                                                                              |
+| Save game                                         | Player selects save                            | Save game in memory                                                                                                                                        | Dislay confirmation message                                                                                                         |
+| Complete game                                     | Player's stats were enough to end game         | Calculate player's stats                                                                                                                                   | Victory personalized message and final score                                                                                        |
+| Resume previous game                              | Player selects resume game                     | Retrieves game from memory                                                                                                                                 | Display game from last scene                                                                                                        |
+| Exit game                                         | Player selects exit                            | Save and closes game program                                                                                                                               | Exit text displayed                                                                                                                 |
