@@ -18,9 +18,8 @@ the sources in the final reference list.*
 cited and referenced appropriately.*
 
 **Introduction**
-Stage 1 is the design and analysis phase which is  necessary for the preparation of the actual program outline .Every aspect of the program revolves around the analysis and design phase. It comprises  of three main branches which are the introduction,program purpose,input/output table and algorithm design.
 
-The introduction is the basic overview what would be included in this branch. The sub categories under the program purpose include the functional and non-functional requirements. The input and output table is a table built mainly to show the program's task and the corresponding input and output for each task. Meanwhile, the algorithm is meant to display what the program is exactly meant to do by showing how data flows.
+The purpose of the software design and implementation project is a project report which consist of four stages which encompasses the analysis and design which is necessary for the preparation, planning and breaking down of the program specification. Every aspects of the project revolves around this stage. The next stage in  completing for this project report is the implementation which is necessary to integrate the outcomes of the analysis and deisgn stage. Built upon the earlier stages is the testing stage. This stage is very crucial to determine if the program is performing at the right level by putting the program through a series of test in order to prevent any form of bugs before being used at the user's end. The final part of the report is the evaluation stage which is needed for assessing the program's effectiveness.
 
 **Stage 1:Analysis And Design**
 
@@ -115,3 +114,21 @@ Input Process Output Table
 | Complete game                                     | Player's stats were enough to end game         | Calculate player's stats                                                                                                                                   | Victory personalized message and final score                                                                                        |
 | Resume previous game                              | Player selects resume game                     | Retrieves game from memory                                                                                                                                 | Display game from last scene                                                                                                        |
 | Exit game                                         | Player selects exit                            | Save and closes game program                                                                                                                               | Exit text displayed                                                                                                                 |
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20133740.png)
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20133753.png)
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20133802.png)
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20133935.png)
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134046.png)
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134057.png)
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134108.png)
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134118.png)
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134126.png)
