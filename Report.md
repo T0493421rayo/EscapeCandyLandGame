@@ -132,3 +132,7 @@ Input Process Output Table
 ![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134118.png)
 
 ![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134126.png)
+
+**Class Diagram**
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-17%20205447.png)
