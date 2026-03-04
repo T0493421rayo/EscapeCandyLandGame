@@ -24,52 +24,56 @@ The purpose of the software design and implementation project is a project repor
 **Stage 1:Analysis And Design**
 
 Program Specification
-The software is designed to create a text based engaging adventurous game where the players:
+The software is designed to create a text-based, engaging adventurous game where the players:
 
 **Functional Requirement**
 **Player Interaction and Choices:**
 
-The game should have at least 30 binary choices.                                                                Each choice leads to a particular scenario which could lead to game over or victory.                                                                                                              Each choice should have a small description of what the user is experiencing.              Provide clear feedback on the consequences of each choice.
+The game would have at least 30 binary choices, which are stages for the player to escape the Magic World of Gumball.                                                                
+
+Each choice leads to a particular scenario whichbranches out the game plot into puzzles, combat, and item collection scenes, which could lead to game over or victory.                                                                                                              Each choice should have a small description of what the user is experiencing and feeling in the game world.                                                                                                                   Provide detailed and personalized feedback on the consequences of each choice, which could be a new scene, weapon, or item collected successfully, a reduction or increase to health or attack power.
+
+The main aim of this requirement is to engage the player in order to keep them informed on what is going to create a sense of the character in the game.
 
 **Inventory and Items Impact:**
 
-An inventory design to collect,save and view weapons.                                                                
+An inventory design to collect, save, and view weapons that would aid their journey in The Magic World of Gumball.                                                                
 
-Each player can encounter various gears. For example: weapons for combat and food for health and clothing for restoration.
+Each player can encounter various items. These items are designed to have an effect on the player's health and attack power in order for survival. For example, weapons will boost the player's attack power for combat scenarios, potions and food will restore the player after combat, keys to unlock doors and new pathways, and clothing will provide a layer of defense.
 
-Each one of those should create an effect on the player's stats and health necessary to have an effect on the player's combat and unlocking new routes etc.
+Each one of those items should create an effect on the player's stats and health when collected and added to the inventory to escape the Magic World of Gumball.
 
 **Save and Resume Functionality:**
 
-Each player should have their previous game saved to be resumed and saved for later times using text files.
+Each player should have their previous game saved to be resumed and saved for later in order to continue the escape adventure in the Magic World of Gumball at their own convenience, using text files.
 
-Included in the text file or binary file should be player's name to aid personalization and story engagement.
+Player's details that were part of the first phase of the game before they saved it, such as the lives count, player's name, scenarios, attack power, and collected items in inventory, should be saved. 
 
-Provide an intuitive interface to save load games.
+Provide an intuitive interface to allow user's determine whether they would like to start the game from scratch or be able to continue from the saved state.
 
 **Story and Engagement**
 
-Each story must have logical connections inbetween scenario from the 
+Each story must have logical connections between each scenario from the moment they begin the escape from the Magic World of Gumball. This basically means that each binary decision made at any point in time would be a doorway into a new scenario
 
-Each players details stored during the save and resume functionality should help create a personalized experience which would be integrated into dialogues and messages.
+Each player's details stored during the save and resume functionality, such as the stats and player's name, should help create a personalized experience which would be integrated into dialogues, feedbacks and messages.
 
-**Game play scenario**                                                                                                                 The program should be a collection of various scenarios such as puzzles,combat based and item collection which should be seamlessly align into the game.
+**Game play scenario**                                                                                                                 The program should be a collection of various scenarios, such as puzzles, combat-based, and item collection, which should be seamlessly aligned into the game.
 
-Puzzles:Could be maths based, anagrams or riddles designed to the intellectual mind.
+The puzzles will either be maths-based, anagrams, or riddles that are designed to test the player's ability to apply logic and critical thinking skills. This would lead to a reward or a different scenario. 
 
-Combat based:The players inventory aand stats need to influence any combat act.
+The combat scenario will depend on the player's stats, mainly the inventory containing either weapons, potions,  or clothing. This would determine whether the player is going to be defeated or succeed when faced in combat against an enemy.
 
-Item collection: The players should be able to gather any items to aid his game progression.
+The item collection scenario will allow the player to gather the necessary items needed, such as food, clothing, and weapons, to influence the player's stats in order to help the player escape the Magic World of Gumball.
 
 **Score system:**
-Each of those game play scenario e.g a combat scene or puzzle ecene should have an effect on their player's score system depending on success or defeat.
+Each of those game play scenario e.g a combat scene or puzzle scecene should have an effect on their player's score system depending on success or defeat during the escape from the Magic World of Gumball. Successful actions, such as a correct puzzle answer, are designed to increase the player's score, while failures should reduce the player's life count and health status.
 
-Display score board at different critical points e.g after a scenario encounter and the beginning and the end.
+Display score board at different critical points e.g after and before a scenario encounter, in order to create a cohesive experience. This would allow the player to know the effect of their decisions.
 
 **Error handling:**
-The text based system should make sure user's input is validated to prevent crashes and errors.
+The text based system should make sure the user's input is validated to prevent crashes and errors in the Magic World of Gumball
 
-Error messages should be provided when the user's input doesn't correlate to the data structure of the answer.
+Error messages should be provided when the user's input doesn't correlate to the data structure of the answer. For example in 
 
 **Non Functional Requirement**
 **Code quality:**
