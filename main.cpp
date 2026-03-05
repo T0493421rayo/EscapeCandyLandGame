@@ -107,7 +107,6 @@ void scenario2(player&player) {
 
     }
 
-
 }
 void scenario3(player &player) {
     cout<<"\n---SCENARIO 3:CRYSTAL BALL---\n";

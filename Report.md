@@ -119,23 +119,43 @@ Input Process Output Table
 | Resume previous game                              | Player selects resume game                     | Retrieves game from memory                                                                                                                                 | Display game from last scene                                                                                                        |
 | Exit game                                         | Player selects exit                            | Save and closes game program                                                                                                                               | Exit text displayed                                                                                                                 |
 
-![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20133740.png)
+**Flowcharts**
+
+Main menu flowchart
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-03-05%20131419.png)
+
+New game flowchart
 
 ![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20133753.png)
 
+Load game
+
 ![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20133802.png)
 
-![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20133935.png)
+Game loop flowchart
+
+![s](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-03-05%20131932.png)
+
+Combat flowchart
 
 ![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134046.png)
 
-![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134057.png)
+Puzzle scenario flowchart
 
-![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134108.png)
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-03-05%20132523.png)
 
-![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134118.png)
+Save game flowchart
 
-![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134126.png)
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-03-05%20132645.png)
+
+Load previous game flowchart
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-03-05%20132956.png)
+
+Item collection flowchart
+
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-03-05%20133231.png)
 
 **Class Diagram **
 
