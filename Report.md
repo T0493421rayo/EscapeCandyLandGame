@@ -23,15 +23,19 @@ The purpose of the software design and implementation project is a project repor
 
 **Stage 1:Analysis And Design**
 
-Program Specification
+**Program Specification**
 The software is designed to create a text-based, engaging adventurous game where the players:
 
 **Functional Requirement**
 **Player Interaction and Choices:**
 
-The game would have at least 30 binary choices, which are stages for the player to escape the Magic World of Gumball.                                                                
+The game should have 30 binary choices, which are stages for the player to escape the Magic World of Gumball.     
 
-Each choice leads to a particular scenario whichbranches out the game plot into puzzles, combat, and item collection scenes, which could lead to game over or victory.                                                                                                              Each choice should have a small description of what the user is experiencing and feeling in the game world.                                                                                                                   Provide detailed and personalized feedback on the consequences of each choice, which could be a new scene, weapon, or item collected successfully, a reduction or increase to health or attack power.
+Each choice should have a small description of the surroundings, atmosphere, and the player's emotions.                                                           
+
+Each choice leads to a particular scenario, which branches out the game plot into puzzles, combat, and item collection scenes, which could lead to game over or victory.   
+
+The decisions have a detailed, personalized, and immediate effect in this case, the health, lives, or attack power, or an addition or removal from the item's inventory.For example, a correct path decision produces a safe new pathway scene, a correct puzzle answer leads to an increase in attack power or lives, and if the user adds to the inventory, it would be an advantage in combat scenes, and some give an added health score. Meanwhile, each incorrect decision leads to health reduction.
 
 The main aim of this requirement is to engage the player in order to keep them informed on what is going to create a sense of the character in the game.
 
@@ -41,7 +45,9 @@ An inventory design to collect, save, and view weapons that would aid their jour
 
 Each player can encounter various items. These items are designed to have an effect on the player's health and attack power in order for survival. For example, weapons will boost the player's attack power for combat scenarios, potions and food will restore the player after combat, keys to unlock doors and new pathways, and clothing will provide a layer of defense.
 
-Each one of those items should create an effect on the player's stats and health when collected and added to the inventory to escape the Magic World of Gumball.
+Each item gained as the journey progresses have numerical values which increment the attack or health effect. For example, if the player decides to drink the potion juice, it increases the health points by 15 points; if the player decides to collect the crystal ball from the fairy it can be used during combat against the enemy.
+
+Each one of those items should create an effect on the player's stats and health when collected and added to the inventory to escape the Magic World of Gumball. The player would also been given appropriate feedback on how it affects the player.
 
 **Save and Resume Functionality:**
 
@@ -57,9 +63,11 @@ Each story must have logical connections between each scenario from the moment t
 
 Each player's details stored during the save and resume functionality, such as the stats and player's name, should help create a personalized experience which would be integrated into dialogues, feedbacks and messages.
 
-**Game play scenario**                                                                                                                 The program should be a collection of various scenarios, such as puzzles, combat-based, and item collection, which should be seamlessly aligned into the game.
+Each branch must be connected based on the binary choice made earlier. For example, the wrong choice for that scenario would lead to a penalty, and the right choice would lead to an increase in attack power or health effect.
 
-The puzzles will either be maths-based, anagrams, or riddles that are designed to test the player's ability to apply logic and critical thinking skills. This would lead to a reward or a different scenario. 
+**Game play scenario**                                                                                                                 The program should be a collection of three main categories of scenarios, which are the puzzles, combat-based, and item collection, which should be seamlessly aligned into the game.
+
+The puzzles will either be maths-based, anagrams, or riddles that are designed to test the player's ability to apply logic and critical thinking skills. This would lead to a reward, which would increase health points. 
 
 The combat scenario will depend on the player's stats, mainly the inventory containing either weapons, potions,  or clothing. This would determine whether the player is going to be defeated or succeed when faced in combat against an enemy.
 
@@ -68,12 +76,14 @@ The item collection scenario will allow the player to gather the necessary items
 **Score system:**
 Each of those game play scenario e.g a combat scene or puzzle scecene should have an effect on their player's score system depending on success or defeat during the escape from the Magic World of Gumball. Successful actions, such as a correct puzzle answer, are designed to increase the player's score, while failures should reduce the player's life count and health status.
 
-Display score board at different critical points e.g after and before a scenario encounter, in order to create a cohesive experience. This would allow the player to know the effect of their decisions.
+For each scenario decision, the range of scoring includes puzzle success which is between +10 to +20 health points,+20 to +30 health points, item between +5 to+15 attack or health points.
+
+Display scoreboard at different critical points e.g after and before a scenario encounter, in order to create a cohesive experience. This would allow the player to know the effect of their decisions.
 
 **Error handling:**
 The text based system should make sure the user's input is validated to prevent crashes and errors in the Magic World of Gumball
 
-Error messages should be provided when the user's input doesn't correlate to the data structure of the answer. For example in 
+Error messages should be provided when the user's input doesn't correlate to the data structure of the answer. For example in making a binary choice the correct answer must be either 1 or 2. At this point in time, a reprompt with well detailed feedback must be initiated.
 
 **Non Functional Requirement**
 **Code quality:**
@@ -92,12 +102,11 @@ Game must run smoothly and efficiently to create a seamless experience.
 Low amount of memory should be used.
 
 **Compatibility:**
-The program must run on different operating systems.
+The program must run on different operating systems which would be macOS,windows and  linux.
 
 **Documentation:**
-Methods and classes should have comments for documentation.
 
-Input Process Output Table
+Every class and method must have comments explaining the purpose, parameters and expected behavior
 
 <style>
 </style>
@@ -139,7 +148,7 @@ Game loop flowchart
 
 Combat flowchart
 
-![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-07%20134046.png)
+![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-03-10%20124548.png)
 
 Puzzle scenario flowchart
 
