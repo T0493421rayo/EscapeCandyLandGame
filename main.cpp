@@ -35,7 +35,7 @@ private:
 
 public:
     Player(string name) {
-        name = name;
+        this->name = name;
         health = 100;
         attackPower = 5;
         lives = 5;
@@ -322,7 +322,7 @@ public:
         cout<<"Its golden eyes lock onto you, and the ground trembles as it raises its weapon. ";
         cout<<"This is the final trial—your last obstacle before escaping the Magic World of Gumball.";
 
-        cout << "1) Attack the guard\n2) Use the crystal ball\n";
+        cout << "\n 1) Attack the guard\n2) Use the crystal ball\n";
 
 
         int choice = ValidChoice(1, 2);
@@ -364,9 +364,7 @@ public:
         scenes = { s1, s2, s3, s4, s5, s6, s7, s8 };
     }
 
-
-
-    void start() {
+    void startGame() {
         cout << "Welcome to the Magic World of Gumball!\n";
         player.displayGreetings();
         player.printStatus();
@@ -399,7 +397,7 @@ int main() {
     getline(cin, name);
 
     Game game(name);
-    game.start();
+    game.startGame();
 
     return 0;
 }
