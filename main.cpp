@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include <limits>
-#include <vector>(
+#include <vector>
+
 using namespace std;
 
 class Item {
@@ -136,13 +137,20 @@ int ValidChoice(int min, int max) {
 
 class Scenario {
 public:
+    virtual void run(Player &p) {
+        cout << "Base scenario.\n";
+    }
+};
 
-    void scenario1(Player &p) {
+// SCENARIO 1
+class Scenario1 : public Scenario {
+public:
+    void run(Player &p) override {
         cout << "\n--- SCENE 1: TALKING COTTON CANDY TREES ---\n";
         cout<<"Tree A is a fluffy blue cotton candy!\n";
         cout<<"Tree B is a fluffy red cotton candy!\n ";
         cout << "Tree A: 'Follow me to the safe path'\n";
-        cout << "Tree B: 'No, he's lying i'm the actual safe path!'\n";
+        cout << "Tree B: 'No, he's lying I'm the actual safe path!'\n";
         cout << "1) Follow Tree A\n2) Follow Tree B\n";
 
         int choice = ValidChoice(1, 2);
@@ -151,11 +159,15 @@ public:
             cout << "Tree A leads you into a snake swamp! -10 health.\n";
             p.takeDamage(10);
         } else {
-            cout << "Tree B leads you safely across a bright brick redbridge.\n";
+            cout << "Tree B leads you safely across a bright brick red bridge.\n";
         }
     }
+};
 
-    void scenario2(Player &p) {
+// SCENARIO 2
+class Scenario2 : public Scenario {
+public:
+    void run(Player &p) override {
         cout << "\n--- SCENARIO 2: THE WHISPERING BRIDGE ---\n";
         cout << "The forest path ends at a narrow bridge glowing with faint magic.\n";
         cout << "A sudden chill runs through the air as the planks shift beneath your feet.\n"; // ← one extra line
@@ -168,16 +180,18 @@ public:
         if (choice == 1) {
             cout << "\nThe bridge hums approvingly.The gap closes!.\n";
             cout << "A warm glow surrounds you, strengthening your resolve. +5 attack power.\n";
-
-            p.increaseAttack(5);
         } else {
             cout<<"\n The bridge groans in disappointment.The bridge collapses!\n";
             cout << "Wrong! You fall into a swamp. The swamp candy snakes feast on you! -10 health.\n";
             p.takeDamage(10);
         }
     }
+};
 
-    void scenario3(Player &p) {
+// SCENARIO 3
+class Scenario3 : public Scenario {
+public:
+    void run(Player &p) override {
         cout << "\n--- SCENARIO 3: THE CRYSTAL BALL ---\n";
         cout << "After crossing the whispering bridge, the path winds into a quiet clearing.\n";
         cout << "A soft glow pulses behind a cluster of pink gumballs, as if calling your name.\n";
@@ -196,9 +210,14 @@ public:
         } else {
             cout << "You left the crystal ball behind!\n";
         }
+    ;
     }
+};
 
-    void scenario4(Player &p) {
+// SCENARIO 4
+class Scenario4 : public Scenario {
+public:
+    void run(Player &p) override {
         cout << "\n--- SCENARIO 4: MATH PUZZLE ---\n";
         cout<<"Beyond the clearing, the path narrows into a corridor of tall candy canes. ";
         cout<<"Strange symbols glow faintly along their stripes, shifting as you walk past. ";
@@ -217,7 +236,12 @@ public:
         }
     }
 
-    void scenario5(Player &p) {
+};
+
+// SCENARIO 5
+class Scenario5 : public Scenario {
+public:
+    void run(Player &p) override {
         cout << "\n--- SCENARIO 5: POTION JUICE ---\n";
         cout<<"\nThe air becomes very warm and you see some pixie dust moving quickly\n";
         cout<<"\n A fairy appears from behind the trees swiftly\n";
@@ -238,28 +262,36 @@ public:
             cout << "You refused the potion!\n";
         }
     }
+};
 
-    void scenario6(Player &p) {
+class Scenario6 : public Scenario {
+public:
+    void run(Player &p) override {
         cout << "\n--- SCENARIO 6: ANAGRAM DOOR ---\n";
         cout<<"The forest darkens as you move forward, the trees bending inward like silent watchers. ";
         cout<<"A stone archway rises from the ground, sealed by a heavy door carved with shifting letters. ";
         cout<<"The symbols glow faintly, rearranging themselves as if trying to speak. ";
         cout<<"A low hum fills the air, urging you to solve the word that will unlock the path ahead.";
         cout << "Letters: C E E R U C S\n";
+
         cout << "Which word unlocks the door?\n";
         cout << "1) SECURE\n2) RESCUE\n";
+
 
         int choice = ValidChoice(1, 2);
 
         if (choice == 1) {
-            cout << "Correct! The door opens.\n";
+            cout << "Correct! The door opens!.\n";
         } else {
-            cout << "Wrong! Arrows hit you. -15 health.\n";
-            p.takeDamage(15);
+            cout << "Wrong! Arrow strikes you on the chest and you groan in pain!. -10 health.\n";
+            p.takeDamage(10);
         }
     }
+};
 
-    void scenario7(Player &p) {
+class Scenario7 : public Scenario {
+public:
+    void run(Player &p) override {
         cout << "\n--- SCENARIO 7: SMART QUESTION ---\n";
         cout<<"Beyond the unlocked door, a narrow tunnel crackles with static energy. ";
         cout<<"Sparks dance along the walls, lighting your path in sharp flashes. ";
@@ -268,6 +300,7 @@ public:
 
         cout << "Which comes first: lightning or thunder?\n";
         cout << "1) Same time\n2) Lightning\n";
+
 
         int choice = ValidChoice(1, 2);
 
@@ -278,8 +311,11 @@ public:
             cout << "Correct! Goblin disappears.\n";
         }
     }
+};
 
-    void scenario8(Player &p) {
+class Scenario8 : public Scenario {
+public:
+    void run(Player &p) override {
         cout << "\n--- SCENARIO 8: FINAL BATTLE ---\n";
         cout<<"The tunnel opens into a vast crystalline arena, its walls shimmering with swirling colors. ";
         cout<<"At the center stands a towering guardian forged from living stone and enchanted metal. ";
@@ -287,6 +323,7 @@ public:
         cout<<"This is the final trial—your last obstacle before escaping the Magic World of Gumball.";
 
         cout << "1) Attack the guard\n2) Use the crystal ball\n";
+
 
         int choice = ValidChoice(1, 2);
 
@@ -311,6 +348,7 @@ public:
 };
 
 
+
 int main() {
     cout << "Welcome to the Magic World of Gumball!\n";
     cout << "Enter player's name: ";
@@ -319,19 +357,34 @@ int main() {
     getline(cin, name);
 
     Player p(name);
-    Scenario s;
 
     p.displayGreetings();
     p.printStatus();
 
-    s.scenario1(p);
-    s.scenario2(p);
-    s.scenario3(p);
-    s.scenario4(p);
-    s.scenario5(p);
-    s.scenario6(p);
-    s.scenario7(p);
-    s.scenario8(p);
+    Scenario1 s1;
+    Scenario2 s2;
+    Scenario3 s3;
+    Scenario4 s4;
+    Scenario5 s5;
+    Scenario6 s6;
+    Scenario7 s7;
+    Scenario8 s8;
+
+    vector<Scenario*> scenes = {
+        &s1, &s2, &s3, &s4, &s5, &s6, &s7, &s8
+    };
+
+    for (Scenario* s : scenes) {
+        s->run(p);
+
+        if (p.getHealth() <= 0) {
+            cout << "\nYou died! Game over.\n";
+            return 0;
+        }
+    }
+
+
+
 
     cout << "\n--- GAME OVER ---\n";
     p.printStatus();
