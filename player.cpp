@@ -1,43 +1,51 @@
 //
 // Created by Motunrayo on 3/10/2026.
 //
-#include "Player.h"
+#include "player.h"
 #include <limits>
+#include "item.h"
 
-Player::Player(string name) {
+//
+// Created by Motunrayo on 3/10/2026.
+//
+
+
+player::player(string name) {
     this->name = name;
     health = 100;
-    attackPower = 5;
-    lives = 5;
-    crystalBall = false;
-    potionJuice = false;
+    attack_power = 5;
+    lives=3;
+    crystal_ball = false;
+    potion_juice = false;
 }
-
-void Player::takeDamage(int amount) {
+void player::TakeDamage(int amount) {
     health -= amount;
     if (health < 0) health = 0;
 }
-
-void Player::heal(int amount) {
+void player::Heal(int amount) {
     health += amount;
 }
-
-void Player::increaseAttack(int amount) {
-    attackPower += amount;
+void player::IncreaseAttack(int amount) {
+    attack_power += amount;
 }
 
-void Player::addItem(Item item) {
+void player::AddItem(const item &item) {
     inventory.push_back(item);
 
     cout << "\nYou got: " << item.name << " (" << item.type << ")\n";
 
-    if (item.healthEffect != 0) {
-        cout << "Health Effect: " << item.healthEffect << "\n";
-        heal(item.healthEffect);
+    if (item.GetHealthEffect() != 0) {
+        health +=item.GetHealthEffect();
+        cout<<"You gained health points:"<<item.GetHealthEffect()<<"\n";
     }
+    if (item.GetAttackEffect()!=0) {
+        attack_power+=item.GetAttackEffect();
+        cout<<"You gained attack points:"<<item.GetAttackEffect()<<"\n";
+    }
+
 }
 
-bool Player::hasItem(string itemName) {
+bool player::HasItem(string itemName) {
     for (int i = 0; i < inventory.size(); i++) {
         if (inventory[i].name == itemName)
             return true;
@@ -45,24 +53,43 @@ bool Player::hasItem(string itemName) {
     return false;
 }
 
-int Player::getAttack() {
-    return attackPower;
+int player::GetAttack() {
+    return attack_power;
 }
 
-int Player::getHealth() {
+
+
+int player::GetHealth() {
     return health;
 }
 
-string Player::getName() {
+int player::GetLives() {
+    return lives;
+}
+
+string player::GetName() {
     return name;
 }
 
-void Player::printStatus() {
+void player::LoseLife() {
+    if (lives>0) {
+        lives--;
+    }
+    if (lives>0) {
+        health=100;
+        cout<<"\n You lost a life!"<<endl;
+        cout<<"Lives left:"<<lives<<endl;
+    } else {
+        cout<<"No lives left!";
+    }
+}
+
+void player::PrintStatus() {
     cout << "\n--- PLAYER STATUS ---\n";
     cout << "Name: " << name << "\n";
     cout << "Health: " << health << "\n";
     cout << "Lives: " << lives << "\n";
-    cout << "Attack Power: " << attackPower << "\n";
+    cout << "Attack Power: " << attack_power << "\n";
 
     cout << "Inventory: ";
     if (inventory.empty()) {
@@ -75,19 +102,15 @@ void Player::printStatus() {
     }
     cout << "\n";
 }
-
-void Player::displayGreetings() {
+void player::DisplayGreetings() {
     cout << "\n--- Welcome " << name << " to the Magic World of Gumball! ---\n";
     cout << "--- Your mission is to escape while you still have lives! ---\n";
 }
-
 int ValidChoice(int min, int max) {
     int choice;
     bool valid = false;
-
     while (!valid) {
         cout << "Enter choice (" << min << "-" << max << "): ";
-
         if (cin >> choice) {
             if (choice >= min && choice <= max) {
                 valid = true;
@@ -104,4 +127,4 @@ int ValidChoice(int min, int max) {
     return choice;
 }
 
-#include "Player.h"
+#include "player.h"

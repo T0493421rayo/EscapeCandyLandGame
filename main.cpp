@@ -2,23 +2,21 @@
 #include <string>
 #include <limits>
 #include <vector>
-#include "Game.h";
-#include "Item.h";
-#include "Player.h";
-#include "Scenario.h"
+#include "game.h";
+#include "item.h";
+#include "player.h";
+#include "scenario.h"
 using namespace std;
-
-
-
 int main() {
+    srand(time(nullptr));
     cout << "Welcome to the Magic World of Gumball!\n";
     cout << "Enter player's name: ";
 
     string name;
     getline(cin, name);
 
-    Game game(name);
-    game.startGame();
+    game game(name);
+    game.StartGame();
 
     return 0;
 }

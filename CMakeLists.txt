@@ -12,4 +12,12 @@ add_executable(IY453_Coursework_P493421 main.cpp
         Player.h
         Game.cpp
         Game.h
+        story_scenario.cpp
+        story_scenario.h
+        combat_scenario.cpp
+        combat_scenario.h
+        item_scenario.cpp
+        item_scenario.h
+        puzzle_scenario.cpp
+        puzzle_scenario.h
 )
