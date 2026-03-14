@@ -6,8 +6,7 @@
 using namespace std;
 
 void PuzzleScenario::run(player &p) {
-    cout << text << "\n";
-
+    cout << text;
     int choice = ValidChoice(minChoice, maxChoice);
-    handler(choice, p);
+    puzzleEffect(choice, p);
 }

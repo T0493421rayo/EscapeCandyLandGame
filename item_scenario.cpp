@@ -4,9 +4,55 @@
 
 #include "item_scenario.h"
 #include <iostream>
+
+#include "player.h"
+
+
 using namespace std;
+
 void ItemScenario::run(player &p) {
     cout << description << "\n";
-    p.AddItem(reward);
+
+    cout << "Do you want to collect the item?\n";
+    cout << "1) Yes\n";
+    cout << "2) No\n";
+
+    int choice = ValidChoice(1, 2);
+
+    if (choice == 1) {
+        cout << "You collected: " << reward.GetName() << "\n";
+        p.AddItem(reward);
+
+        if (reward.GetHealthEffect() > 0) {
+            p.Heal(reward.GetHealthEffect());
+            cout << "+ " << reward.GetHealthEffect() << " health.\n";
+        }
+
+        if (reward.GetAttackEffect() > 0) {
+            p.IncreaseAttack(reward.GetAttackEffect());
+            cout << "+ " << reward.GetAttackEffect() << " attack.\n";
+        }
+
+        if (reward.GetAttackEffect() < 0) {
+            p.IncreaseAttack(reward.GetAttackEffect());
+            cout << reward.GetAttackEffect() << " attack (negative item).\n";
+        }
+
+    } else {
+        cout << "You decided to leave the item.\n";
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
