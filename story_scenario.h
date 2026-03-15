@@ -11,7 +11,7 @@ class StoryScenario : public scenario {
 private:
     std::string text;
 public:
-    StoryScenario(std::string t) : text(t) {}
-    void run(player &p) override;
+   StoryScenario(const std::string&t,int sid1,int sid2);
+   int run(player &p) override;
 };
 #endif //IY453_COURSEWORK_P493421_STORY_SCENARIO_H

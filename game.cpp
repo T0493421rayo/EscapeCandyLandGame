@@ -150,11 +150,11 @@ void game::LoadScenarios() {
         NaturePuzzleEffect
     ));
     scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO 8: FINAL BATTLE ---\n"
+        "\n--- SCENARIO 8: GUARDIAN BATTLE ---\n"
         "The tunnel opens into a vast crystalline arena, its walls shimmering with swirling colors. "
         "At the center stands a towering guardian forged from living stone and enchanted metal. "
         "Its golden eyes lock onto you, and the ground trembles as it raises its weapon. "
-        "This is the final trial—your last obstacle before escaping the Magic World of Gumball."
+        "This is a major obstacle to prove your worth"
         "\n 1) Attack the guard\n2) Use the crystal ball\n"
         "A towering guardian blocks your path!\n",
         50, 15, "Stone Guardian"
@@ -163,10 +163,64 @@ void game::LoadScenarios() {
     //for combat scenes
     scenes.push_back(new CombatScenario(
         "\n--- SCENARIO 9: GUMMY BEAR ATTACK ---\n"
+        "Behind the bushes you hear some growling noises!\n"
+        "Despite, this warning you weren't sure\n "
+        "So, you assumed it was your belly growling and you ignored!\n"
         "A giant red gummy bear leaps at you!\n",
-        40, 10, "Gummy Bear"
+        40, 15, "Gummy Bear"
+    ));
+    scenes.push_back(new ItemScenario(
+    "\n--- SCENARIO 10: GOLDEN SHIELD ---"
+    "After the trecharous fight with red gummy.\n"
+    "You stop to take in some of that sweet and fresh air.\n"
+    "As you rest, something brights catches your eye.\n"
+    "It's a gleaming golden shield!\n",
+    item("Golden Shield", "Defense Item", 10, 0)
+));
+
+
+    scenes.push_back(new CombatScenario(
+    "\n--- SCENARIO: GUMBALL WOLF ---\nA wolf made of swirling gumballs snarls at you.\n",
+    35, 12, "Gumball Wolf"
+));
+
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO: CANDY DRAGON ---\nA caramel dragon swoops from above.\n",
+        70, 18, "Candy Dragon"
+    ));
+
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO: SOUR SERPENT ---\nA giant sour snake slithers toward you.\n",
+        45, 14, "Sour Serpent"
+    ));
+
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO: LICORICE KNIGHT ---\nA knight made of black licorice blocks your path.\n",
+        55, 16, "Licorice Knight"
+    ));
+
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO: GUMMY BEAR TWINS ---\nTwo gummy bears attack together!\n",
+        60, 15, "Gummy Bear Twins"
+    ));
+
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO: COTTON CANDY SPIRIT ---\nA ghostly candy spirit materializes.\n",
+        40, 10, "Cotton Candy Spirit"
+    ));
+
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO: CHOCOLATE GOLEM ---\nA heavy chocolate golem stomps toward you.\n",
+        80, 20, "Chocolate Golem"
+    ));
+
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO: FINAL MINI-BOSS: THE MARSHMALLOW TITAN ---\nA massive marshmallow giant rises from the ground.\n",
+        90, 22, "Marshmallow Titan"
     ));
 }
+
+
 bool game::Combat(player &p, int enemyHealth, int enemyAttack, int enemyDefence, const std::string &enemyName) {
     cout<<"You vs"<<enemyName<<"/n";
     while (p.GetHealth() > 0 && enemyHealth > 0) {

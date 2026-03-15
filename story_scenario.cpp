@@ -4,8 +4,11 @@
 
 #include "story_scenario.h"
 #include <iostream>
-using namespace std;
-void StoryScenario::run(player &p) {
-    cout << text << "\n";
-    int choice=ValidChoice(1,2);
-};
+
+StoryScenario::StoryScenario(const std::string &t, int n1, int n2): scenario(n1, n2), text(t) {}
+int StoryScenario::run(player &p) {
+    std::cout << text << "\n";
+    std::cout << "1) Continue\n2) Turn back\n";
+    int choice = ValidChoice(1, 2);
+    return GetNext(choice);
+}
