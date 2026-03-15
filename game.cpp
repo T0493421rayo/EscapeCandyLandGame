@@ -5,7 +5,6 @@
 #include "puzzle_scenario.h"
 #include "item.h"
 #include "player.h"
-#include "algorithm"
 
 void WhisperingBridgeEffect(int choice,player&p) {
     if (choice==1) {

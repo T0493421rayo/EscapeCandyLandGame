@@ -1,6 +1,5 @@
-//
+
 // Created by Motunrayo on 3/13/2026.
-//
 #include "puzzle_scenario.h"
 #include <iostream>
 using namespace std;
