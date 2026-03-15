@@ -1,16 +1,22 @@
-//
 // Created by Motunrayo on 3/13/2026.
-//
 
 #include "item_scenario.h"
 #include <iostream>
-
 #include "player.h"
-
-
+using namespace std;
+#include "item_scenario.h"
+#include <iostream>
 using namespace std;
 
-void ItemScenario::run(player &p) {
+ItemScenario::ItemScenario(const std::string &desc,
+                           const item &i,
+                           int sid1,
+                           int sid2)
+    : scenario(sid1, sid2), description(desc), reward(i)
+{
+}
+
+int ItemScenario::run(player &p) {
     cout << description << "\n";
 
     cout << "Do you want to collect the item?\n";
@@ -41,18 +47,6 @@ void ItemScenario::run(player &p) {
     } else {
         cout << "You decided to leave the item.\n";
     }
+
+    return GetNext(choice);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

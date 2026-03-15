@@ -5,35 +5,32 @@
 #include "puzzle_scenario.h"
 #include "item.h"
 #include "player.h"
-
-void WhisperingBridgeEffect(int choice,player&p) {
-    if (choice==1) {
-        cout<<"Correct!+5 attack points.\n";
+void WhisperingBridgeEffect(int choice, player &p) {
+    if (choice == 1) {
+        cout << "Correct! +5 attack points.\n";
         p.IncreaseAttack(5);
-    }else {
-        cout<<"Wrong! You fall into a swamp. -10 health.\n";
+    } else {
+        cout << "Wrong! You fall into a swamp. -10 health.\n";
         p.TakeDamage(10);
     }
 }
-void MathsPuzzleEffect(int choice , player&p) {
-    if (choice==1) {
-        cout<<"Correct!+5 attack points.\n";
+void MathsPuzzleEffect(int choice, player &p) {
+    if (choice == 1) {
+        cout << "Correct! +5 attack points.\n";
         p.IncreaseAttack(5);
-    }else {
-        cout<<"Wrong! Lightning strikes you!. -10 health.\n";
+    } else {
+        cout << "Wrong! Lightning strikes you! -10 health.\n";
         p.TakeDamage(10);
     }
-
 }
-void AnagramPuzzleEffect(int choice , player&p) {
-    if (choice==1) {
-        cout<<"Correct!+5 attack points.\n";
+void AnagramPuzzleEffect(int choice, player &p) {
+    if (choice == 1) {
+        cout << "Correct! +5 attack points.\n";
         p.IncreaseAttack(5);
-    }else {
-        cout<<"Wrong!Arrow hits you!. -10 health.\n";
+    } else {
+        cout << "Wrong! Arrow hits you! -10 health.\n";
         p.TakeDamage(10);
     }
-
 }
 void NaturePuzzleEffect(int choice, player &p) {
     if (choice == 2) {
@@ -43,99 +40,110 @@ void NaturePuzzleEffect(int choice, player &p) {
         p.TakeDamage(20);
     }
 }
-
-
-game::game(const std::string &playerName):p(playerName){
-    running=true;
+game::game(const std::string &playerName) : p(playerName) {
+    running = true;
 }
 game::~game() {
-    for (scenario*s:scenes) {
+    for (scenario *s : scenes) {
         delete s;
     }
-};
+}
 void game::StartGame() {
     p.DisplayGreetings();
     LoadScenarios();
-
-    for (scenario*s :scenes) {
-        if (p.GetHealth()<=0&&p.GetLives()<=0) {
-            cout<<"\n No live left!";
-            break;
-        }
-        s->run(p);
-        if (p.GetHealth()<=0) {
+    int current = 0;
+    while (current != -1) {
+        scenario *s = scenes[current];
+        int next = s->run(p);
+        if (p.GetHealth() <= 0) {
             p.LoseLife();
-            if (p.GetLives()<=0) {
-                cout<<"No lives left!\n";
+            if (p.GetLives() <= 0) {
+                cout << "No lives left!\n";
                 break;
             }
+            cout << "\n You lost a life!\n";
+            cout << "Lives left: " << p.GetLives() << "\n";
+            if (next >= 0 && next < scenes.size()) {
+                current = next;
+            }
+            continue;
         }
+        current = next;
     }
-    cout<<"THE END OF THE MAGIC WORLD OF GUMBALL\n";
+
+    cout << "THE END OF THE MAGIC WORLD OF GUMBALL\n";
 }
-
-
 void game::LoadScenarios() {
     scenes.push_back(new StoryScenario(
-        "\n--- SCENE 1: TALKING COTTON CANDY TREES ---\n"
+        "\n--- SCENARIO 0: TALKING COTTON CANDY TREES ---\n"
         "Tree A is a fluffy blue cotton candy!\n"
         "Tree B is a fluffy red cotton candy!\n"
         "Tree A: 'Follow me to the safe path'\n"
         "Tree B: 'No, he's lying I'm the actual safe path!'\n"
         "1) Follow Tree A\n"
-        "2) Follow Tree B\n"
+        "2) Follow Tree B\n",
+        1, 2
     ));
     scenes.push_back(new PuzzleScenario(
-    "\n--- SCENARIO 2: THE WHISPERING BRIDGE ---\n"
-    "The forest path ends at a narrow bridge glowing with faint magic.\n"
-    "A sudden chill runs through the air as the planks shift beneath your feet.\n"
-    "A low voice murmurs: \"Traveler, answer my riddle to cross.\"\n"
-    "What kind of band never plays music?\n"
-    "1) A rubber band\n"
-    "2) A chicken\n",
-    1, 2,
-    WhisperingBridgeEffect
+        "\n--- SCENARIO 1: THE WHISPERING BRIDGE ---\n"
+        "The forest path ends at a narrow bridge glowing with faint magic.\n"
+        "A sudden chill runs through the air as the planks shift beneath your feet.\n"
+        "A low voice murmurs: \"Traveler, answer my riddle to cross.\"\n"
+        "What kind of band never plays music?\n"
+        "1) A rubber band\n"
+        "2) A chicken\n",
+        1, 2,
+        WhisperingBridgeEffect,
+        3, 4
+    ));
+    scenes.push_back(new StoryScenario(
+        "\n--- SCENARIO 2: THE DARK PATH ---\n"
+        "The forest grows darker and the air becomes heavy.\n"
+        "1) Follow Tree A\n"
+        "2) Follow Tree B\n",
+        5, 6
     ));
 
     scenes.push_back(new ItemScenario(
         "\n--- SCENARIO 3: THE CRYSTAL BALL ---\n"
         "After crossing the whispering bridge, the path winds into a quiet clearing.\n"
-        "A soft glow pulses behind a cluster of pink gumballs, as if calling your name.\n"
-        "You brush them aside and uncover a small crystal sphere humming with faint magic.\n",
-        item("Crystal ball", "Magic Item", 0, 0)
+        "A soft glow pulses behind a cluster of pink gumballs.\n"
+        "You uncover a small crystal sphere humming with faint magic.\n",
+        item("Crystal ball", "Magic Item", 0, 0),
+        7, 8
     ));
     scenes.push_back(new PuzzleScenario(
-       "\n--- SCENARIO 4: MATH PUZZLE ---\n"
-       "Beyond the clearing, the path narrows into a corridor of tall candy canes.\n "
-       "Strange symbols glow faintly along their stripes, shifting as you walk past.\n"
-       "A stone tablet rises from the ground, humming with quiet magic, and numbers \n"
-       "Which number is even?\n"
-       "1) 18\n"
-       "2) 7\n",
-       1, 2,
-       MathsPuzzleEffect
-   ));
+        "\n--- SCENARIO 4: MATH PUZZLE ---\n"
+        "Beyond the clearing, the path narrows into a corridor of tall candy canes.\n "
+        "Strange symbols glow faintly along their stripes, shifting as you walk past. \n"
+        "A stone tablet rises from the ground, humming with quiet magic, and numbers .\n"
+        "Which number is even?\n"
+        "1) 18\n"
+        "2) 7\n",
+        1, 2,
+        MathsPuzzleEffect,
+        9, 10
+    ));
     scenes.push_back(new ItemScenario(
         "\n--- SCENARIO 5: POTION JUICE ---\n"
         "The air becomes very warm and you see some pixie dust moving quickly\n"
         " A fairy appears from behind the trees swiftly\n"
         " She hovers before you and offers you a potion bottle with a warm smile\n",
-        item("Potion Juice", "Healing Item", 15, 0)
+        item("Potion Juice", "Healing Item", 15, 0),
+        11, 12
     ));
-
-    // SCENE 6 — PUZZLE
     scenes.push_back(new PuzzleScenario(
-        "\n--- SCENARIO 6: ANAGRAM DOOR ---\n"
-        "The forest darkens as you move forward, the trees bending inward like silent watchers.\n "
-        "A stone archway rises from the ground, sealed by a heavy door carved with shifting letters. \n"
-        "The symbols glow faintly, rearranging themselves as if trying to speak.\n "
-        "A low hum fills the air, urging you to solve the word that will unlock the path ahead.\n"
-        "Letters: C E E R U C S\n"
-        "Which word unlocks the door?\n"
-        "1) SECURE\n"
-        "2) RESCUE\n",
+        "\n--- SCENARIO 6: ANAGRAM DOOR ---"
+        "\nThe forest darkens as you move forward, the trees bending inward like silent watchers. "
+        "\nA stone archway rises from the ground, sealed by a heavy door carved with shifting letters. "
+        "\nThe symbols glow faintly, rearranging themselves as if trying to speak. "
+        "\nA low hum fills the air, urging you to solve the word that will unlock the path ahead."
+        "\nLetters: C E E R U C S"
+        "\nWhich word unlocks the door?"
+         "1) SECURE\n2) RESCUE\n",
         1, 2,
-        AnagramPuzzleEffect
+        AnagramPuzzleEffect,
+        13, 14
     ));
     scenes.push_back(new PuzzleScenario(
         "\n--- SCENARIO 7: SMART QUESTION ---\n"
@@ -147,100 +155,40 @@ void game::LoadScenarios() {
         "1) Same time\n"
         "2) Lightning\n",
         1, 2,
-        NaturePuzzleEffect
+        NaturePuzzleEffect,
+        15, 16
     ));
     scenes.push_back(new CombatScenario(
         "\n--- SCENARIO 8: GUARDIAN BATTLE ---\n"
         "The tunnel opens into a vast crystalline arena, its walls shimmering with swirling colors. "
         "At the center stands a towering guardian forged from living stone and enchanted metal. "
         "Its golden eyes lock onto you, and the ground trembles as it raises its weapon. "
-        "This is a major obstacle to prove your worth"
-        "\n 1) Attack the guard\n2) Use the crystal ball\n"
-        "A towering guardian blocks your path!\n",
-        50, 15, "Stone Guardian"
+        "This is the final trial—your last obstacle before escaping the Magic World of Gumball."
+        "\n 1) Attack the guard\n2) Use the crystal ball\n",
+        50, 15, "Stone Guardian",
+        17, 18
     ));
 
-    //for combat scenes
-    scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO 9: GUMMY BEAR ATTACK ---\n"
-        "Behind the bushes you hear some growling noises!\n"
-        "Despite, this warning you weren't sure\n "
-        "So, you assumed it was your belly growling and you ignored!\n"
-        "A giant red gummy bear leaps at you!\n",
-        40, 15, "Gummy Bear"
-    ));
-    scenes.push_back(new ItemScenario(
-    "\n--- SCENARIO 10: GOLDEN SHIELD ---"
-    "After the trecharous fight with red gummy.\n"
-    "You stop to take in some of that sweet and fresh air.\n"
-    "As you rest, something brights catches your eye.\n"
-    "It's a gleaming golden shield!\n",
-    item("Golden Shield", "Defense Item", 10, 0)
-));
 
 
-    scenes.push_back(new CombatScenario(
-    "\n--- SCENARIO: GUMBALL WOLF ---\nA wolf made of swirling gumballs snarls at you.\n",
-    35, 12, "Gumball Wolf"
-));
-
-    scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO: CANDY DRAGON ---\nA caramel dragon swoops from above.\n",
-        70, 18, "Candy Dragon"
-    ));
-
-    scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO: SOUR SERPENT ---\nA giant sour snake slithers toward you.\n",
-        45, 14, "Sour Serpent"
-    ));
-
-    scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO: LICORICE KNIGHT ---\nA knight made of black licorice blocks your path.\n",
-        55, 16, "Licorice Knight"
-    ));
-
-    scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO: GUMMY BEAR TWINS ---\nTwo gummy bears attack together!\n",
-        60, 15, "Gummy Bear Twins"
-    ));
-
-    scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO: COTTON CANDY SPIRIT ---\nA ghostly candy spirit materializes.\n",
-        40, 10, "Cotton Candy Spirit"
-    ));
-
-    scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO: CHOCOLATE GOLEM ---\nA heavy chocolate golem stomps toward you.\n",
-        80, 20, "Chocolate Golem"
-    ));
-
-    scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO: FINAL MINI-BOSS: THE MARSHMALLOW TITAN ---\nA massive marshmallow giant rises from the ground.\n",
-        90, 22, "Marshmallow Titan"
-    ));
 }
-
-
 bool game::Combat(player &p, int enemyHealth, int enemyAttack, int enemyDefence, const std::string &enemyName) {
-    cout<<"You vs"<<enemyName<<"/n";
+    cout << "You vs " << enemyName << "\n";
     while (p.GetHealth() > 0 && enemyHealth > 0) {
         int playerDamage = p.GetAttack() - enemyDefence;
         if (playerDamage < 0) playerDamage = 0;
-
-        int enemyDamage = enemyAttack - p.GetHealth();
+        int enemyDamage = enemyAttack;
         if (enemyDamage < 0) enemyDamage = 0;
-
         enemyHealth -= playerDamage;
         p.TakeDamage(enemyDamage);
-
         cout << "Your strike caused " << playerDamage << " damage.\n";
-        cout << enemyName << "strike caused" << enemyDamage << " damage.\n";
-
+        cout << enemyName << " strike caused " << enemyDamage << " damage.\n";
         if (p.GetHealth() <= 0) {
             cout << "\nYou were defeated!\n";
             return false;
         }
     }
+
     cout << "\nYou defeated the " << enemyName << "!\n";
     return true;
 }
