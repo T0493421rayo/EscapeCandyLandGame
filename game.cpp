@@ -146,12 +146,12 @@ void game::LoadScenarios() {
         13, 14
     ));
     scenes.push_back(new PuzzleScenario(
-        "\n--- SCENARIO 7: SMART QUESTION ---\n"
-        "Beyond the unlocked door, a narrow tunnel crackles with static energy. "
-        "Sparks dance along the walls, lighting your path in sharp flashes. "
-        "A booming voice echoes through the chamber, its tone both ancient and impatient. "
-        "It demands an answer about the storm that powers this place, testing your understanding of nature itself."
-        "Which comes first: lightning or thunder?\n"
+        "\n--- SCENARIO 7: SMART QUESTION ---"
+        "\nBeyond the unlocked door, a narrow tunnel crackles with static energy. "
+        "\nSparks dance along the walls, lighting your path in sharp flashes. "
+        "\nA booming voice echoes through the chamber, its tone both ancient and impatient. "
+        "\nIt demands an answer about the storm that powers this place, testing your understanding of nature itself."
+        "\nWhich comes first: lightning or thunder?"
         "1) Same time\n"
         "2) Lightning\n",
         1, 2,
@@ -160,14 +160,94 @@ void game::LoadScenarios() {
     ));
     scenes.push_back(new CombatScenario(
         "\n--- SCENARIO 8: GUARDIAN BATTLE ---\n"
-        "The tunnel opens into a vast crystalline arena, its walls shimmering with swirling colors. "
-        "At the center stands a towering guardian forged from living stone and enchanted metal. "
-        "Its golden eyes lock onto you, and the ground trembles as it raises its weapon. "
-        "This is the final trial—your last obstacle before escaping the Magic World of Gumball."
+        "\nThe tunnel opens into a vast crystalline arena, its walls shimmering with swirling colors. "
+        "\nAt the center stands a towering guardian forged from living stone and enchanted metal. "
+        "\nIts golden eyes lock onto you, and the ground trembles as it raises its weapon. "
+        "\nThis is the final trial—your last obstacle before escaping the Magic World of Gumball."
         "\n 1) Attack the guard\n2) Use the crystal ball\n",
         50, 15, "Stone Guardian",
         17, 18
     ));
+    scenes.push_back(new StoryScenario(
+     "\n--- SCENARIO 10: THE CANDY FOG ---\n"
+        "A thick fog of powdered sugar rolls across the path.\n"
+        "Shadows move inside it, whispering your name.\n"
+        "Do you walk through or wait for it to clear?\n"
+        "1) Walk through\n"
+        "2) Wait\n",
+        19,20
+    ));
+    scenes.push_back(new PuzzleScenario(
+        "\n--- SCENARIO 11: THE SWEET SCALE ---\n"
+        "A magical scale blocks your path.\n"
+        "It glows with two items:\n"
+        "A deep voice from a cloud echoes:\n"
+        "Which weighs more?\n"
+        "1) 1kg of marshmallows\n"
+        "2) 1kg of chocolate\n",
+        1, 2,
+        MathsPuzzleEffect,
+        21, 22
+    ));
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO 14: LICORICE SPIDER ---\n"
+        "A giant spider woven from black licorice drops from above.\n",
+        40, 12, "Licorice Spider",
+        22,23
+    ));
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO 12: COCOA BEAST ---\n"
+        "A creature made of molten chocolate rises from a bubbling pool.\n",
+        45, 14, "Cocoa Beast",
+        13, 14
+    ));
+    scenes.push_back(new ItemScenario(
+        "\n--- SCENARIO 13: SUGAR LANTERN ---\n"
+         "A glowing lantern made of crystallized sugar hangs from a branch.\n",
+         item("Sugar Lantern", "Magic Item", 0, 5),
+        15, 16
+    ));
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO 14: LICORICE SPIDER ---\n"
+        "A giant spider woven from black licorice drops from above.\n",
+        40, 12, "Licorice Spider",
+        15, 16
+    ));
+    scenes.push_back(new StoryScenario(
+        "\n--- SCENARIO 15: THE HONEY RIVER ---\n"
+        "A golden river of honey blocks your path.\n"
+        "1) Accept fairy help\n"
+        "2) Cross alone\n",
+        17, 18
+    ));
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO 16: CANDY BANDITS ---\n"
+        "Two mischievous candy bandits leap from the bushes.\n",
+        55, 16, "Candy Bandits",
+        17, 18
+    ));
+    scenes.push_back(new PuzzleScenario(
+        "\n--- SCENARIO 17: THE COOKIE CODE ---\n"
+        "A stone door displays three cookies.\n"
+        "Which cookie was invented first?\n"
+        "1) Ginger\n"
+        "2) Chocolate chip\n",
+        1, 2,
+        AnagramPuzzleEffect,
+        19, 20
+    ));
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO 18: GUMDROP GOLEM ---\n"
+        "A towering golem made of gumdrops stomps toward you.\n",
+        60, 18, "Gumdrop Golem",
+        19, 20
+    ));
+
+
+
+
+
+
 
 
 
