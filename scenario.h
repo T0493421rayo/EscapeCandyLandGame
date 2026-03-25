@@ -20,7 +20,6 @@ protected:
 public:
     scenario(int n1, int n2);
     virtual ~scenario() {}
-
     virtual int run(player &p) = 0;
 
     int GetNext(int choice);

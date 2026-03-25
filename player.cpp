@@ -4,15 +4,9 @@
 #include "player.h"
 #include <limits>
 #include "item.h"
-
-//
-// Created by Motunrayo on 3/10/2026.
-//
-
-
 player::player(string name) {
     this->name = name;
-    health = 100;
+    health = 50;
     attack_power = 5;
     lives=3;
     crystal_ball = false;
@@ -31,9 +25,7 @@ void player::IncreaseAttack(int amount) {
 
 void player::AddItem(const item &item) {
     inventory.push_back(item);
-
     cout << "\nYou got: " << item.name << " (" << item.type << ")\n";
-
     if (item.GetHealthEffect() != 0) {
         health +=item.GetHealthEffect();
         cout<<"You gained health points:"<<item.GetHealthEffect()<<"\n";
@@ -42,8 +34,8 @@ void player::AddItem(const item &item) {
         attack_power+=item.GetAttackEffect();
         cout<<"You gained attack points:"<<item.GetAttackEffect()<<"\n";
     }
-
 }
+
 
 bool player::HasItem(string itemName) {
     for (int i = 0; i < inventory.size(); i++) {
@@ -52,25 +44,18 @@ bool player::HasItem(string itemName) {
     }
     return false;
 }
-
 int player::GetAttack() {
     return attack_power;
 }
-
-
-
 int player::GetHealth() {
     return health;
 }
-
 int player::GetLives() {
     return lives;
 }
-
 string player::GetName() {
     return name;
 }
-
 void player::LoseLife() {
     if (lives>0) {
         lives--;
@@ -83,7 +68,6 @@ void player::LoseLife() {
         cout<<"No lives left!";
     }
 }
-
 void player::PrintStatus() {
     cout << "\n--- PLAYER STATUS ---\n";
     cout << "Name: " << name << "\n";
@@ -126,5 +110,4 @@ int ValidChoice(int min, int max) {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     return choice;
 }
-
 #include "player.h"

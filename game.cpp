@@ -70,12 +70,12 @@ void game::StartGame() {
         }
         current = next;
     }
-
+    p.PrintStatus();
     cout << "THE END OF THE MAGIC WORLD OF GUMBALL\n";
 }
 void game::LoadScenarios() {
     scenes.push_back(new StoryScenario(
-        "\n--- SCENARIO 0: TALKING COTTON CANDY TREES ---\n"
+        "\n--- START---"
         "Tree A is a fluffy blue cotton candy!\n"
         "Tree B is a fluffy red cotton candy!\n"
         "Tree A: 'Follow me to the safe path'\n"
@@ -99,11 +99,13 @@ void game::LoadScenarios() {
     scenes.push_back(new StoryScenario(
         "\n--- SCENARIO 2: THE DARK PATH ---\n"
         "The forest grows darker and the air becomes heavy.\n"
-        "1) Follow Tree A\n"
-        "2) Follow Tree B\n",
+        "Two bridges with separate pathways appear from a distance\n"
+        "One red made of cherry licorice\n"
+        "Second is pink made of chewed gumball\n"
+        "1) Follow Bridge A\n"
+        "2) Follow Bridge B\n",
         5, 6
     ));
-
     scenes.push_back(new ItemScenario(
         "\n--- SCENARIO 3: THE CRYSTAL BALL ---\n"
         "After crossing the whispering bridge, the path winds into a quiet clearing.\n"
@@ -169,7 +171,7 @@ void game::LoadScenarios() {
         17, 18
     ));
     scenes.push_back(new StoryScenario(
-     "\n--- SCENARIO 10: THE CANDY FOG ---\n"
+     "\n--- SCENARIO 9: THE CANDY FOG ---\n"
         "A thick fog of powdered sugar rolls across the path.\n"
         "Shadows move inside it, whispering your name.\n"
         "Do you walk through or wait for it to clear?\n"
@@ -178,7 +180,7 @@ void game::LoadScenarios() {
         19,20
     ));
     scenes.push_back(new PuzzleScenario(
-        "\n--- SCENARIO 11: THE SWEET SCALE ---\n"
+        "\n--- SCENARIO 10: THE SWEET SCALE ---\n"
         "A magical scale blocks your path.\n"
         "It glows with two items:\n"
         "A deep voice from a cloud echoes:\n"
@@ -190,35 +192,52 @@ void game::LoadScenarios() {
         21, 22
     ));
     scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO 14: LICORICE SPIDER ---\n"
+        "\n--- SCENARIO 11: LICORICE SPIDER ---\n"
+        "You continue walking until you reach a dark cave\n"
+        "Despite, the darkness you decided to enter inside!\n"
+        "You see some shadow figurines moving about\n"
         "A giant spider woven from black licorice drops from above.\n",
         40, 12, "Licorice Spider",
-        22,23
+        23,24
     ));
     scenes.push_back(new CombatScenario(
         "\n--- SCENARIO 12: COCOA BEAST ---\n"
-        "A creature made of molten chocolate rises from a bubbling pool.\n",
+        "You follow a warm, sticky trail deeper into the forest.\n"
+        "The ground begins to bubble beneath your feet, releasing bursts of hot chocolate steam.\n"
+        "Suddenly, the bubbling pool rises and forms into a towering creature.\n"
+        "A creature made of molten chocolate roars as it emerges from the pool.\n",
         45, 14, "Cocoa Beast",
-        13, 14
+        25, 26
     ));
     scenes.push_back(new ItemScenario(
         "\n--- SCENARIO 13: SUGAR LANTERN ---\n"
-         "A glowing lantern made of crystallized sugar hangs from a branch.\n",
+        "After defeating the Cocoa Beast, the bubbling chocolate pool settles into a calm, glossy surface.\n"
+        "A warm breeze sweeps through the clearing, carrying tiny sparkles of sugar through the air.\n"
+        "A narrow path reveals itself between two gumdrop boulders, glowing faintly as if guiding you forward.\n"
+        "You follow the shimmering trail deeper into the forest, where the air becomes cooler and sweeter.\n"
+        "Hanging from a low branch, you notice a soft, pulsing light\n"
+        "A glowing lantern made of crystallized sugar hangs from a branch.\n",
          item("Sugar Lantern", "Magic Item", 0, 5),
-        15, 16
+        27, 28
     ));
     scenes.push_back(new CombatScenario(
         "\n--- SCENARIO 14: LICORICE SPIDER ---\n"
-        "A giant spider woven from black licorice drops from above.\n",
+        "With the Sugar Lantern lighting your path, the forest grows darker and the air turns sticky.\n"
+        "Licorice webs cling to your arms as you step into a shadowy cave.\n"
+        "Shapes crawl along the walls, shifting in the dim glow of your lantern.\n"
+        "A giant spider woven from black licorice drops from above, ready to strike.\n ",
         40, 12, "Licorice Spider",
-        15, 16
+        29, 30
     ));
     scenes.push_back(new StoryScenario(
         "\n--- SCENARIO 15: THE HONEY RIVER ---\n"
+        "As you continue, down the path\n"
+        "You spot a shiny, viscous liquid flowing\n"
         "A golden river of honey blocks your path.\n"
+        "A fairy hovers around your head with a wand.\n"
         "1) Accept fairy help\n"
         "2) Cross alone\n",
-        17, 18
+        31, 18
     ));
     scenes.push_back(new CombatScenario(
         "\n--- SCENARIO 16: CANDY BANDITS ---\n"
@@ -236,22 +255,167 @@ void game::LoadScenarios() {
         AnagramPuzzleEffect,
         19, 20
     ));
+    scenes.push_back(new ItemScenario(
+        "\n--- SCENARIO 18: STRAWBERRY SHIELD ---\n"
+        "Trials and tribulations have got you wondering if you're in a dream\n"
+        "The cloud goes dark above your head\n"
+        "As the darkness you notice something in the grass\n"
+        "A shield shaped like a giant strawberry lies in the grass.\n",
+        item("Strawberry Shield", "Defense Item", 0, 10),
+        21, 22
+    ));
     scenes.push_back(new CombatScenario(
-        "\n--- SCENARIO 18: GUMDROP GOLEM ---\n"
-        "A towering golem made of gumdrops stomps toward you.\n",
-        60, 18, "Gumdrop Golem",
-        19, 20
+        "\n--- SCENARIO 19: CARAMEL WRAITH ---\n"
+        "Your legs get weaker and your head grows heavier\n"
+        "In the attempt of a rest\n"
+        "You realise you have unexpected company\n"
+        "A ghostly wraith dripping with caramel floats toward you.\n",
+        50, 15, "Caramel Wraith",
+        27,30
+
+    ));
+    scenes.push_back(new StoryScenario(
+        "\n--- SCENARIO 20: THE SOUR CROSSROADS ---\n"
+        "The last adventure got you in despair\n"
+        "But you realised you have to keep going\n"
+        "Two glowing paths appear.\n"
+        "1) Left path\n"
+        "2) Right path\n",
+        23, 24
+    ));
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO 21: PEPPERMINT KNIGHT ---\n"
+        "At some point you hear a parade\n"
+        "This feels like a sound of victory not knowing it's another obstacle to accomplish\n"
+        "Things turn south faster than you can believe it\n"
+        "A knight clad in peppermint armor challenges you.\n",
+        70, 20, "Peppermint Knight",
+        23, 24
+    ));
+    scenes.push_back(new PuzzleScenario(
+        "\n--- SCENARIO 22: THE CAKE RIDDLE ---\n"
+        "The sky rains down some sprinkles flowing done from the clouds\n"
+        "Today might be your lucky day\n"
+        "You spot your favorite dessert\n"
+        "A magical cake floats in the air.\n"
+        "It asks: 'What has layers but is not a cake?'\n"
+        "1) An onion\n"
+        "2) A cookie\n",
+        1, 2,
+        NaturePuzzleEffect,
+        23, 24
+    ));
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO 23: SUGAR SERPENT ---\n"
+        "Your sharp ear spots some hissing noises\n"
+        "As ths sound grew louder, your body temperature rises\n"
+        "A long serpent made of crystallized sugar slithers toward you.\n",
+        80, 22, "Sugar Serpent",
+        25, 26
+    ));
+    scenes.push_back(new PuzzleScenario(
+        "\n--- SCENARIO 24: THE MATHEMATICAN GUMMY ---\n"
+        "",
+        1, 2,
+        MathsPuzzleEffect,
+        27, 28
     ));
 
 
 
+    scenes.push_back(new PuzzleScenario(
+        "\n--- SCENARIO 25: THE CANDY CODE ---\n"
+        "Red, Blue, Red, Blue, Red, ?\n"
+        "1) Blue\n"
+        "2) Green\n",
+        1, 2,
+        AnagramPuzzleEffect,
+        29, 30
+    ));
 
 
 
+    scenes.push_back(new PuzzleScenario(
+        "\n--- SCENARIO 26: THE MARSHMALLOW RIDDLE ---\n"
+        "\"What melts but is never hot?\"\n"
+        "1) Ice\n"
+        "2) Chocolate\n",
+        1, 2,
+        AnagramPuzzleEffect,
+        31, 32
+    ));
 
 
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO 27: CANDY GOLEM ---\n"
+        "A massive caramel golem rises from the ground.\n",
+        60, 18, "Candy Golem",
+        33, 30
+        ));
+
+
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO 28: SOUR BAT SWARM ---\n"
+        "A swarm of sour bats screeches overhead.\n",
+        35, 10, "Sour Bat Swarm",
+        33, 31
+    ));
+
+
+
+    scenes.push_back(new CombatScenario(
+        "\n--- SCENARIO 29: FROSTED MINOTAUR ---\n"
+        "A towering minotaur coated in icy frosting charges.\n",
+        75, 25, "Frosted Minotaur",
+        33, 32
+    ));
+
+
+    // SCENARIO 30: BLUEBERRY AMULET (Item)
+    scenes.push_back(new ItemScenario(
+        "\n--- SCENARIO 30: BLUEBERRY AMULET ---\n"
+        "A glowing amulet hangs from a candy cane tree.\n",
+        item("Blueberry Amulet", "Magic Item", 0, 5),
+        31, 32
+    ));
+
+
+
+    scenes.push_back(new StoryScenario(
+        "\n--- SCENARIO 31: THE COTTON CANDY MAZE ---\n"
+        "You enter a maze of swirling cotton candy walls.\n"
+        "1) Left path\n"
+        "2) Right path\n",
+        32, 33
+        ));
+
+
+    scenes.push_back(new StoryScenario(
+        "\n--- SCENARIO 32: THE GUMDROP MERCHANT ---\n"
+        "A gumdrop merchant offers you a trade.\n"
+        "1) Trade\n"
+        "2) Refuse\n",
+        33, 30
+    ));
+
+
+
+    scenes.push_back(new StoryScenario(
+        "\n--- SCENARIO 33: THE SUGAR FALLS ---\n"
+        "A roaring waterfall of liquid sugar blocks your path.\n"
+        "You step forward and disappear into the sweetness.\n",
+        34, 34
+    ));
+
+    scenes.push_back(new StoryScenario(
+        "\n--- ENDING 34: SWEET RELEASE ---\n"
+        "You escape the Candy Realm at last.\n",
+        -1, -1
+    ));
 
 }
+
+
 bool game::Combat(player &p, int enemyHealth, int enemyAttack, int enemyDefence, const std::string &enemyName) {
     cout << "You vs " << enemyName << "\n";
     while (p.GetHealth() > 0 && enemyHealth > 0) {
@@ -268,7 +432,6 @@ bool game::Combat(player &p, int enemyHealth, int enemyAttack, int enemyDefence,
             return false;
         }
     }
-
     cout << "\nYou defeated the " << enemyName << "!\n";
     return true;
 }

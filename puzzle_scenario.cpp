@@ -21,5 +21,4 @@ int PuzzleScenario::run(player &p) {
     puzzleEffect(choice, p);
     return GetNext(choice);
 }
-
 #endif

@@ -17,7 +17,6 @@ public:
 
 public:
     item(string itemName, string itemType, int health, int attack);
-
     string GetName() const {
         return name;
     }

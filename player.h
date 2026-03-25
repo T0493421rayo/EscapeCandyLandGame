@@ -4,11 +4,8 @@
 
 #ifndef IY453_COURSEWORK_P493421_PLAYER_H
 #define IY453_COURSEWORK_P493421_PLAYER_H
-
-
 #ifndef PLAYER_H
 #define PLAYER_H
-
 #include <string>
 #include <vector>
 #include <iostream>
@@ -35,7 +32,6 @@ public:
     void IncreaseAttack(int amount);
     void AddItem(const item &item);
     bool HasItem(string itemName);
-
     void LoseLife();
     void PrintStatus();
     void DisplayGreetings();
