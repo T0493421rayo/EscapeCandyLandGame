@@ -5,10 +5,10 @@
 | ---------------------- | ---------------------------------- |
 | Group                  | A                                  |
 | Module Title           | Software Design and Implementation |
-| Assessment<br> Type    | Coursework Stage 1                 |
+| Assessment<br> Type    | Coursework Final                   |
 | Module Tutor<br> Name  | Mustafa<br> Ghashim                |
 | Student ID<br> Number  | P493421                            |
-| Date of<br> Submission | 29/1/26                            |
+| Date of<br> Submission | 6/04/26                            |
 
 ☒ *I confirm that this assignment is my own work. Where I have
 referred to academic sources, I have provided in-text citations and included
@@ -17,9 +17,39 @@ the sources in the final reference list.*
  ☒ *Where I have used AI, I have
 cited and referenced appropriately.*
 
-**Introduction**
+# Table Of Contents
 
-The purpose of the software design and implementation project is a project report which consist of four stages which encompasses the analysis and design which is necessary for the preparation, planning and breaking down of the program specification. Every aspects of the project revolves around this stage. The next stage in  completing for this project report is the implementation which is necessary to integrate the outcomes of the analysis and deisgn stage. Built upon the earlier stages is the testing stage. This stage is very crucial to determine if the program is performing at the right level by putting the program through a series of test in order to prevent any form of bugs before being used at the user's end. The final part of the report is the evaluation stage which is needed for assessing the program's effectiveness.
+Contents
+
+[Table Of Contents. 2](#_Toc225514267)
+
+[Introduction. 3](#_Toc225514268)
+
+[Analysis And Design. 4](#_Toc225514269)
+
+[Implementation. 7](#_Toc225514270)
+
+[Testing. 8](#_Toc225514271)
+
+[Evaluation. 9](#_Toc225514272)
+
+[References. 10](#_Toc225514273)
+
+# Introduction
+
+This Software Design and Implementation comprises
+of four main parts, which are the analysis and design of the task program given,
+which focuses on the program specifications, input and output table, and
+algorithms. The next part of the project is the implementation of the design, which
+is done by coding based on the earlier design and requirements for version 1 of
+the program. Furthermore, a particular section of the project focuses on
+testing, which was done by blackbox testing and evidence screenshots. Finally,
+the project has an evaluation section, which generally shows the area of
+improvement and assesses how effective the program was.
+
+The significance of the analysis and design part of the report is to prepare how to show the aspects the program is meant to fulfil in details which would help minimize the chances of error during the implementation stage. Moreover, the algorithm aspect under analysis and design helps in providing the processes and the structure for the flow of data in each subprocess.The Implementation phase was done to put the blueprint into reality to executethe flow of data in each subprocess and handle the user’s input to be processedby the program to provide the desired output. The purpose of testing is mainly to identify the aspects in which the program works correctly and mainly to identify what it doesn’t fulfill and any potential crashes to be worked on later. The evaluation which was the last aspect was carried out to reflect on the whole process of the project in order to understand how the project went and what would havebeen done differently if the project was given once again.
+
+
 
 **Stage 1:Analysis And Design**
 
@@ -127,6 +157,8 @@ Every class and method must have comments explaining the purpose, parameters and
 | Complete game                                     | Player's stats were enough to end game         | Calculate player's stats                                                                                                                                   | Victory personalized message and final score                                                                                        |
 | Resume previous game                              | Player selects resume game                     | Retrieves game from memory                                                                                                                                 | Display game from last scene                                                                                                        |
 | Exit game                                         | Player selects exit                            | Save and closes game program                                                                                                                               | Exit text displayed                                                                                                                 |
+
+
 
 **Flowcharts**
 

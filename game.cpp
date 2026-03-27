@@ -315,7 +315,13 @@ void game::LoadScenarios() {
     ));
     scenes.push_back(new PuzzleScenario(
         "\n--- SCENARIO 24: THE MATHEMATICAN GUMMY ---\n"
-        "",
+        "Some little children rhyme maths song plays at a distance\n"
+        "You hum to the rythm and start tap dancing\n"
+        "This lightens your mood\n"
+        "A bear leaps and asks you:\n"
+        "What comes once in a minute, twice in a moment but never in a thousand years\n"
+        "1)M"
+        "2)20",
         1, 2,
         MathsPuzzleEffect,
         27, 28
@@ -324,20 +330,23 @@ void game::LoadScenarios() {
 
 
     scenes.push_back(new PuzzleScenario(
-        "\n--- SCENARIO 25: THE CANDY CODE ---\n"
-        "Red, Blue, Red, Blue, Red, ?\n"
-        "1) Blue\n"
-        "2) Green\n",
+        "\n--- SCENARIO 25: THE CANDY PADLOCK ---\n"
+        "A giant padlock is placed on a door with a bunch of letters and a guardian beside\n"
+        "The letters are TENILS\n"
+        "The guardian ask you to pick the correct unscrambled form\n"
+        "1) LISTEN\n"
+        "2) SILENT\n",
         1, 2,
         AnagramPuzzleEffect,
         29, 30
     ));
 
-
-
     scenes.push_back(new PuzzleScenario(
         "\n--- SCENARIO 26: THE MARSHMALLOW RIDDLE ---\n"
-        "\"What melts but is never hot?\"\n"
+        "You approach a bed with a pink mastress\n"
+        "This is the moment you have been waiting for\n"
+        "As soon as you lie in it your fast asleep\n"
+        "The wizard asks you:What melts but is never hot?\n"
         "1) Ice\n"
         "2) Chocolate\n",
         1, 2,
@@ -348,7 +357,9 @@ void game::LoadScenarios() {
 
     scenes.push_back(new CombatScenario(
         "\n--- SCENARIO 27: CANDY GOLEM ---\n"
-        "A massive caramel golem rises from the ground.\n",
+        "The ground rumbles profusely causing a panic within you\n"
+        "This made you scream in attempt of help from the sky\n"
+        "A massive caramel golem emerges from beneath you.\n",
         60, 18, "Candy Golem",
         33, 30
         ));
@@ -356,6 +367,9 @@ void game::LoadScenarios() {
 
     scenes.push_back(new CombatScenario(
         "\n--- SCENARIO 28: SOUR BAT SWARM ---\n"
+        "As it gets dark once more\n"
+        "This time you notice some creatures flying in the distance\n"
+        "You assume their fairies to alignate your fear\n"
         "A swarm of sour bats screeches overhead.\n",
         35, 10, "Sour Bat Swarm",
         33, 31
@@ -365,15 +379,19 @@ void game::LoadScenarios() {
 
     scenes.push_back(new CombatScenario(
         "\n--- SCENARIO 29: FROSTED MINOTAUR ---\n"
+        "Swift flashes of light circle around you\n"
+        "In your mind, you think maybe this could be your guardian angel\n"
         "A towering minotaur coated in icy frosting charges.\n",
         75, 25, "Frosted Minotaur",
         33, 32
     ));
 
 
-    // SCENARIO 30: BLUEBERRY AMULET (Item)
+
     scenes.push_back(new ItemScenario(
         "\n--- SCENARIO 30: BLUEBERRY AMULET ---\n"
+        "The winds grow fierce and the cloud rumbles\n"
+        "You approach a tree which you sit beneath for some shelther\n"
         "A glowing amulet hangs from a candy cane tree.\n",
         item("Blueberry Amulet", "Magic Item", 0, 5),
         31, 32
@@ -383,6 +401,8 @@ void game::LoadScenarios() {
 
     scenes.push_back(new StoryScenario(
         "\n--- SCENARIO 31: THE COTTON CANDY MAZE ---\n"
+        "While you're sitting you sight some pink fluffy favorite sweet of yours\n"
+        "This makes you excited and run swiftly towards it as if you were being chased\n"
         "You enter a maze of swirling cotton candy walls.\n"
         "1) Left path\n"
         "2) Right path\n",
@@ -390,12 +410,17 @@ void game::LoadScenarios() {
         ));
 
 
-    scenes.push_back(new StoryScenario(
-        "\n--- SCENARIO 32: THE GUMDROP MERCHANT ---\n"
-        "A gumdrop merchant offers you a trade.\n"
-        "1) Trade\n"
-        "2) Refuse\n",
-        33, 30
+    scenes.push_back(new PuzzleScenario(
+        "\n--- SCENARIO 32: THE PUZZLE OF OZ ---\n"
+        "The wizard appears with a huge white beard.\n"
+        "His deep voice says: \"Traveler, answer my riddle and you'll leave longer.\"\n"
+        "I'm tall when i'm young, and short when i'm old"
+        "What am i?\n"
+        "1) A candle\n"
+        "2) A pan\n",
+        1, 2,
+        AnagramPuzzleEffect,
+        3, 4
     ));
 
 

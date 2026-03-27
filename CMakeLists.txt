@@ -20,4 +20,6 @@ add_executable(IY453_Coursework_P493421 main.cpp
         item_scenario.h
         puzzle_scenario.cpp
         puzzle_scenario.h
+        game_state.cpp
+        game_state.h
 )
