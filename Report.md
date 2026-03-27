@@ -197,3 +197,15 @@ Item collection flowchart
 **Class Diagram **
 
 ![h](C:\Users\Motunrayo\OneDrive\Pictures\Screenshots\Screenshot%202026-02-17%20205447.png)
+
+<style>
+</style>
+
+# References
+
+Programiz(n.d). C++ File Handling* Retrieved from: [C++ File Handling](https://www.programiz.com/cpp-programming/file-handling) [Accessed 27 March 2026]
+
+w3schools(n.d). C++ How to generate random numbers. Retrieved from: [C++ How To
+Generate a Random Number](https://www.w3schools.com/cpp/cpp_howto_random_number.asp) [Accessed 11 March 2026].
+
+w3schools(n.d). C++ fstream library. Retrieved from: [C++ fstream Library(File Streams) Reference](https://www.w3schools.com/cpp/cpp_ref_fstream.asp) [Accessed 27 March 2026].

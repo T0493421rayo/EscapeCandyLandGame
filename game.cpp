@@ -48,6 +48,12 @@ game::~game() {
         delete s;
     }
 }
+void game::LoadFromState(const GameState& state) {
+    p.fromGameState(state);
+
+    cout << "Game state loaded successfully.\n";
+}
+
 void game::StartGame() {
     p.DisplayGreetings();
     LoadScenarios();

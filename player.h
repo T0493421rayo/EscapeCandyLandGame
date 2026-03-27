@@ -25,9 +25,10 @@ private:
     vector<item> inventory;
 public:
     player(string name);
-    int GetHealth();
-    int GetAttack();
-    int GetLives();
+    string GetName() const;
+    int GetHealth() const;
+    int GetAttack() const;
+    int GetLives() const;
     void TakeDamage(int amount);
     void Heal(int amount);
     void IncreaseAttack(int amount);
@@ -37,6 +38,16 @@ public:
     void PrintStatus();
     void DisplayGreetings();
     string GetName();
+    void SetName(const std::string& newName);
+    void SetHealth(int h);
+    void SetAttackPower(int a);
+    void SetLives(int l);
+    void SetInventory(const std::vector<item>& inv);
+    GameState toGameState(int scenarioID) const;
+    void fromGameState(const GameState& state);
+
+
+
 };
 
 

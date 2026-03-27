@@ -13,6 +13,43 @@ player::player(string name) {
     crystal_ball = false;
     potion_juice = false;
 }
+
+string player::GetName() const {
+    return name;
+}
+
+int player::GetHealth() const {
+    return health;
+}
+
+int player::GetAttack() const {
+    return attack_power;
+}
+
+int player::GetLives() const {
+    return lives;
+}
+
+void player::SetName(const std::string &newName) {
+    name=newName;
+}
+
+void player::SetHealth(int h) {
+    health=h;
+}
+
+void player::SetAttackPower(int attack) {
+    attack_power=attack;
+}
+
+void player::SetLives(int l) {
+    lives=l;
+}
+
+void player::SetInventory(const std::vector<item> &inv) {
+    inventory=inv;
+}
+
 void player::TakeDamage(int amount) {
     health -= amount;
     if (health < 0) health = 0;
@@ -24,36 +61,24 @@ void player::IncreaseAttack(int amount) {
     attack_power += amount;
 }
 
-void player::AddItem(const item &item) {
-    inventory.push_back(item);
-    cout << "\nYou got: " << item.name << " (" << item.type << ")\n";
-    if (item.GetHealthEffect() != 0) {
-        health +=item.GetHealthEffect();
-        cout<<"You gained health points:"<<item.GetHealthEffect()<<"\n";
+void player::AddItem(const item &it) {
+    inventory.push_back(it);
+    cout  << it.GetName()<<"has been added to your inventory.\n";
+    if (it.GetHealthEffect() > 0) {
+        cout << it.GetHealthEffect() << " Health Points\n";
     }
-    if (item.GetAttackEffect()!=0) {
-        attack_power+=item.GetAttackEffect();
-        cout<<"You gained attack points:"<<item.GetAttackEffect()<<"\n";
+    if (it.GetAttackEffect() > 0) {
+        cout << it.GetAttackEffect() << " Attack Power\n";
     }
+    cout << endl;
 }
-
-
 bool player::HasItem(string itemName) {
-    for (int i = 0; i < inventory.size(); i++) {
-        if (inventory[i].name == itemName)
+    for (auto &it : inventory)
+        if (it.GetName() == itemName)
             return true;
-    }
     return false;
 }
-int player::GetAttack() {
-    return attack_power;
-}
-int player::GetHealth() {
-    return health;
-}
-int player::GetLives() {
-    return lives;
-}
+
 string player::GetName() {
     return name;
 }
@@ -81,7 +106,7 @@ void player::PrintStatus() {
         cout << "No item in inventory!";
     } else {
         for (int i = 0; i < inventory.size(); i++) {
-            cout << inventory[i].name;
+            cout << it.GetName() << " has been added to your inventory.\n";
             if (i < inventory.size() - 1) cout << ", ";
         }
     }
@@ -111,4 +136,26 @@ int ValidChoice(int min, int max) {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     return choice;
 }
-#include "player.h"
+
+GameState player::toGameState(int scenarioID) const {
+    GameState state;
+    state.playerName = name;
+    state.health = health;
+    state.lives = lives;
+    state.attack_power = attack_power;
+    state.scenarioID = scenarioID;
+    for (const auto& it : inventory)
+        state.inventory.push_back(it.GetName());
+
+    return state;
+}
+void player::fromGameState(const GameState& state) {
+    name = state.playerName;
+    health = state.health;
+    lives = state.lives;
+    attack_power = state.attack_power;
+    inventory.clear();
+    for (const auto& itemName : state.inventory)
+        inventory.push_back(item(itemName, "Unknown", 0, 0));
+}
+

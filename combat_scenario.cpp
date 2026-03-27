@@ -21,6 +21,7 @@ int CombatScenario::run(player &p) {
     while (p.GetHealth() > 0 && enemyHealth > 0) {
         int playerDamageStats = p.GetAttack() + attackModifier;
         int enemyDamageStats = enemyAttack;
+        //w3school(n.d)
         int playerDamage = playerDamageStats + (rand() % 6 - 2);
         int enemyDamage  = enemyDamageStats + (rand() % 6 - 2);
         if (playerDamage < 0) playerDamage = 0;
