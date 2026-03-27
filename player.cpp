@@ -2,6 +2,7 @@
 // Created by Motunrayo on 3/10/2026.
 //
 #include "player.h"
+#include "game_state.h"
 #include <limits>
 #include "item.h"
 player::player(string name) {

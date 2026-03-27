@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "game_state.h"
 #include "item.h"
 #include "player.h"
 using namespace std;
