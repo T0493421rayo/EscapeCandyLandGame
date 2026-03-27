@@ -22,4 +22,6 @@ add_executable(IY453_Coursework_P493421 main.cpp
         puzzle_scenario.h
         game_state.cpp
         game_state.h
+        save_game.cpp
+        save_game.h
 )

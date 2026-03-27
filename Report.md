@@ -49,8 +49,6 @@ improvement and assesses how effective the program was.
 
 The significance of the analysis and design part of the report is to prepare how to show the aspects the program is meant to fulfil in details which would help minimize the chances of error during the implementation stage. Moreover, the algorithm aspect under analysis and design helps in providing the processes and the structure for the flow of data in each subprocess.The Implementation phase was done to put the blueprint into reality to executethe flow of data in each subprocess and handle the user’s input to be processedby the program to provide the desired output. The purpose of testing is mainly to identify the aspects in which the program works correctly and mainly to identify what it doesn’t fulfill and any potential crashes to be worked on later. The evaluation which was the last aspect was carried out to reflect on the whole process of the project in order to understand how the project went and what would havebeen done differently if the project was given once again.
 
-
-
 **Stage 1:Analysis And Design**
 
 **Program Specification**
@@ -157,8 +155,6 @@ Every class and method must have comments explaining the purpose, parameters and
 | Complete game                                     | Player's stats were enough to end game         | Calculate player's stats                                                                                                                                   | Victory personalized message and final score                                                                                        |
 | Resume previous game                              | Player selects resume game                     | Retrieves game from memory                                                                                                                                 | Display game from last scene                                                                                                        |
 | Exit game                                         | Player selects exit                            | Save and closes game program                                                                                                                               | Exit text displayed                                                                                                                 |
-
-
 
 **Flowcharts**
 

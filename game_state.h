@@ -4,7 +4,7 @@
 
 #ifndef IY453_COURSEWORK_P493421_GAMESTATE_H
 #define IY453_COURSEWORK_P493421_GAMESTATE_H
-#pragma once
+
 #include <string>
 #include <vector>
 
