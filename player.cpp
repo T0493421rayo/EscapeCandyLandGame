@@ -79,9 +79,7 @@ bool player::HasItem(string itemName) {
     return false;
 }
 
-string player::GetName() {
-    return name;
-}
+
 void player::LoseLife() {
     if (lives>0) {
         lives--;
@@ -106,12 +104,14 @@ void player::PrintStatus() {
         cout << "No item in inventory!";
     } else {
         for (int i = 0; i < inventory.size(); i++) {
-            cout << it.GetName() << " has been added to your inventory.\n";
-            if (i < inventory.size() - 1) cout << ", ";
+            cout << inventory[i].GetName();
+            if (i < inventory.size() - 1)
+                cout << ", ";
         }
     }
     cout << "\n";
 }
+
 void player::DisplayGreetings() {
     cout << "\n--- Welcome " << name << " to the Magic World of Gumball! ---\n";
     cout << "--- Your mission is to escape while you still have lives! ---\n";

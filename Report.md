@@ -201,6 +201,32 @@ Item collection flowchart
 <style>
 </style>
 
+ 
+
+<style>
+</style>
+
+
+
+**Technical Elements**
+
+This game project includes a combination of various technical elements combined to create an Object Oriented -Based  Program. The technical elements shown here are file handling, variables, structures such as vectors, pointers, arrays, conditions, functions,
+which include virtual and non-virtual classes and methods.
+
+The variables are essential to store data relating to the game, such as the player’s stats(health, attack power, lives, name), which helps in storing the logic to help the game to run as it progresses from one level to another.
+
+Data structures help in defining the manner in which data is managed in the game program. I included vectors to handle the items in the inventory. Vectors helped in the addition, removal, and storage of the items in the inventory system.
+
+In addition, I used classes to create the blueprint of the game structure. This helped in setting attributes and methods that are needed for each instance should have. Some classes were player class, scenario class, item scenario class, and game class. The player class had certain attributes, such as lives and health, while it had certain class methods to take damage and increase attack.
+
+
+
+
+
+
+
+
+
 # References
 
 Programiz(n.d). C++ File Handling* Retrieved from: [C++ File Handling](https://www.programiz.com/cpp-programming/file-handling) [Accessed 27 March 2026]

@@ -18,11 +18,11 @@ int ItemScenario::run(player &p) {
         p.AddItem(reward);
         if (reward.GetHealthEffect() > 0) {
             p.Heal(reward.GetHealthEffect());
-            cout << "+ " << reward.GetHealthEffect() << " health.\n";
+            cout  << reward.GetHealthEffect() << " health.\n";
         }
         if (reward.GetAttackEffect() > 0) {
             p.IncreaseAttack(reward.GetAttackEffect());
-            cout << "+ " << reward.GetAttackEffect() << " attack.\n";
+            cout  << reward.GetAttackEffect() << " attack.\n";
         }
         if (reward.GetAttackEffect() < 0) {
             p.IncreaseAttack(reward.GetAttackEffect());
