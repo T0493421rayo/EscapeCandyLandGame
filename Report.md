@@ -210,14 +210,52 @@ Item collection flowchart
 
 **Technical Elements**
 
-This game project includes a combination of various technical elements combined to create an Object Oriented -Based  Program. The technical elements shown here are file handling, variables, structures such as vectors, pointers, arrays, conditions, functions,
-which include virtual and non-virtual classes and methods.
+<style>
+</style>
 
-The variables are essential to store data relating to the game, such as the player’s stats(health, attack power, lives, name), which helps in storing the logic to help the game to run as it progresses from one level to another.
+This game project
+includes a combination of various technical elements combined to create an Object
+Oriented Based Program. The technical elements shown here are file handling,
+variables, structures such as vectors, pointers, arrays, conditions, functions,
+which include virtual and non-virtual, classes, and methods.
 
-Data structures help in defining the manner in which data is managed in the game program. I included vectors to handle the items in the inventory. Vectors helped in the addition, removal, and storage of the items in the inventory system.
+The variables are essential to store data relating
+to the game, such as the player’s stats(health, attack power, lives, name),
+which helps in storing the logic to help the game to run as it progresses from
+one level to another.
 
-In addition, I used classes to create the blueprint of the game structure. This helped in setting attributes and methods that are needed for each instance should have. Some classes were player class, scenario class, item scenario class, and game class. The player class had certain attributes, such as lives and health, while it had certain class methods to take damage and increase attack.
+Data structures help in defining the manner in
+which data is managed in the game program. I included vectors to handle the
+items in the inventory. Vectors helped in the addition, removal, and storage of
+the items in the inventory system.
+
+Constructors are important methods that are
+called anytime an instance of a class is made. According to w3schools, constructors
+are self-run anytime an object is created. This helps in setting the objects
+initial value.
+
+The next technical elements were classes to create
+the blueprint of the game structure. This helped in setting attributes and
+methods that are needed for each instance should have. Some classes were player
+class, scenario class, item scenario class, puzzle, story scenario, and game
+class. The player class had certain attributes, such as lives and health, while
+it had certain class methods to take damage and increase attack.
+
+In addition to classes, I used a particular
+class type called an abstract class.  An abstract
+class contains certain behaviours and/or attributes that all child classes must
+inherit. I did this by creating a parent class called scenarios and
+corresponding child classes called item scenario, puzzle scenario, and combat
+scenario. This allows each scenario to have its own specific implementation
+despite inheriting from a generic class.
+
+An important technical concept is
+encapsulation. This helps in protecting certain attributes and methods from being
+accessed by public classes in order to prevent modifications. I used access specifiers
+such as private(cannot be accessed outside), protected(can be accessed by
+derived), and public(can be accessed outside). This is shown by the setting of
+the player class attributes to private and using setters and getters methods for
+access to the private attributes from other classes.
 
 
 
