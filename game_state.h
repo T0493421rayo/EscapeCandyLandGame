@@ -14,7 +14,9 @@ struct GameState {
     int health;
     int attack_power;
     int lives;
+    int score;
     std::vector<std::string> inventory;
+
 };
 
 #endif //IY453_COURSEWORK_P493421_GAMESTATE_H

@@ -14,7 +14,6 @@ public:
     int health_effect;
     int attack_effect;
 
-
 public:
     item(string itemName, string itemType, int health, int attack);
     string GetName() const {
@@ -29,8 +28,6 @@ public:
     int GetAttackEffect() const {
         return attack_effect;
     }
-
-
 };
 
 

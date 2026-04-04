@@ -24,7 +24,8 @@ public:
     void StartGame();
     void LoadScenarios();
     bool Combat(player &p, int enemyHealth, int enemyAttack, int enemyDefence, const std::string &enemyName);
-    void LoadFromState(const GameState& state);
+    int LoadFromState(const GameState& state);
+    void StartGameFromScene(int startID);
 };
 
 #endif

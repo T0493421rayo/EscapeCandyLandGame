@@ -6,7 +6,6 @@
 #define IY453_COURSEWORK_P493421_SAVE_GAME_H
 
 #include "game_state.h"
-
 class save_game {
 public:
     static bool saveGame(const GameState& state);

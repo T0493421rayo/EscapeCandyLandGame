@@ -5,6 +5,8 @@
 #include "puzzle_scenario.h"
 #include "item.h"
 #include "player.h"
+#include "save_game.h"
+
 void WhisperingBridgeEffect(int choice, player &p) {
     if (choice == 1) {
         cout << "Correct! +5 attack points.\n";
@@ -12,6 +14,7 @@ void WhisperingBridgeEffect(int choice, player &p) {
     } else {
         cout << "Wrong! You fall into a swamp. -10 health.\n";
         p.TakeDamage(10);
+        p.AddScore(5);
     }
 }
 void MathsPuzzleEffect(int choice, player &p) {
@@ -21,6 +24,7 @@ void MathsPuzzleEffect(int choice, player &p) {
     } else {
         cout << "Wrong! Lightning strikes you! -10 health.\n";
         p.TakeDamage(10);
+        p.AddScore(5);
     }
 }
 void AnagramPuzzleEffect(int choice, player &p) {
@@ -30,6 +34,7 @@ void AnagramPuzzleEffect(int choice, player &p) {
     } else {
         cout << "Wrong! Arrow hits you! -10 health.\n";
         p.TakeDamage(10);
+        p.AddScore(5);
     }
 }
 void NaturePuzzleEffect(int choice, player &p) {
@@ -38,6 +43,7 @@ void NaturePuzzleEffect(int choice, player &p) {
     } else {
         cout << "Wrong! Goblin hits you. -20 health.\n";
         p.TakeDamage(20);
+        p.AddScore(5);
     }
 }
 game::game(const std::string &playerName) : p(playerName) {
@@ -48,37 +54,55 @@ game::~game() {
         delete s;
     }
 }
-void game::LoadFromState(const GameState& state) {
+int game::LoadFromState(const GameState& state) {
     p.fromGameState(state);
-
     cout << "Game state loaded successfully.\n";
+    return state.scenarioID;
 }
-
 void game::StartGame() {
     p.DisplayGreetings();
     LoadScenarios();
-    int current = 0;
+    StartGameFromScene(0);
+}
+
+
+void game::StartGameFromScene(int startIndex) {
+    int current = startIndex;
     while (current != -1) {
+        cout << "\n1. Continue\n";
+        cout << "2. View Inventory\n";
+        cout << "3. Save game\n";
+        int menuChoice = ValidChoice(1, 3);
+        if (menuChoice == 2) {
+            p.ShowInventory();
+            continue;
+        }
+        if (menuChoice == 3) {
+            GameState state = p.toGameState(current);
+            save_game::saveGame(state);
+            cout <<"Game saved!";
+            break;
+        }
         scenario *s = scenes[current];
         int next = s->run(p);
         if (p.GetHealth() <= 0) {
             p.LoseLife();
             if (p.GetLives() <= 0) {
-                cout << "No lives left!\n";
+                cout <<"No lives left!\n";
                 break;
             }
-            cout << "\n You lost a life!\n";
-            cout << "Lives left: " << p.GetLives() << "\n";
-            if (next >= 0 && next < scenes.size()) {
-                current = next;
-            }
+            cout << "\nYou lost a life!\n";
+            cout << "Lives left: "<< p.GetLives() << "\n";
+            current = next;
             continue;
         }
         current = next;
+        cout<<"Current score: "<<p.GetScore()<<"\n";
     }
     p.PrintStatus();
     cout << "THE END OF THE MAGIC WORLD OF GUMBALL\n";
 }
+
 void game::LoadScenarios() {
     scenes.push_back(new StoryScenario(
         "\n--- START---"
@@ -333,8 +357,6 @@ void game::LoadScenarios() {
         27, 28
     ));
 
-
-
     scenes.push_back(new PuzzleScenario(
         "\n--- SCENARIO 25: THE CANDY PADLOCK ---\n"
         "A giant padlock is placed on a door with a bunch of letters and a guardian beside\n"
@@ -381,8 +403,6 @@ void game::LoadScenarios() {
         33, 31
     ));
 
-
-
     scenes.push_back(new CombatScenario(
         "\n--- SCENARIO 29: FROSTED MINOTAUR ---\n"
         "Swift flashes of light circle around you\n"
@@ -392,8 +412,6 @@ void game::LoadScenarios() {
         33, 32
     ));
 
-
-
     scenes.push_back(new ItemScenario(
         "\n--- SCENARIO 30: BLUEBERRY AMULET ---\n"
         "The winds grow fierce and the cloud rumbles\n"
@@ -402,8 +420,6 @@ void game::LoadScenarios() {
         item("Blueberry Amulet", "Magic Item", 0, 5),
         31, 32
     ));
-
-
 
     scenes.push_back(new StoryScenario(
         "\n--- SCENARIO 31: THE COTTON CANDY MAZE ---\n"
@@ -445,7 +461,6 @@ void game::LoadScenarios() {
     ));
 
 }
-
 
 bool game::Combat(player &p, int enemyHealth, int enemyAttack, int enemyDefence, const std::string &enemyName) {
     cout << "You vs " << enemyName << "\n";

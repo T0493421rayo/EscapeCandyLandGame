@@ -10,6 +10,7 @@ player::player(string name) {
     health = 50;
     attack_power = 5;
     lives=3;
+    score=0;
     crystal_ball = false;
     potion_juice = false;
 }
@@ -28,6 +29,13 @@ int player::GetAttack() const {
 
 int player::GetLives() const {
     return lives;
+}
+
+int player::GetScore() const {
+    return score;
+}
+void player::AddScore(int amount) {
+    score += amount;
 }
 
 void player::SetName(const std::string &newName) {
@@ -92,14 +100,29 @@ void player::LoseLife() {
         cout<<"No lives left!";
     }
 }
+void player::ShowInventory() const {
+    cout <<"Inventory for: "<<name;
+    if (inventory.empty()) {
+        cout << "\n No items in inventory.\n";
+        return;
+    }
+    for (const auto& it : inventory) {
+        cout << "- " << it.GetName();
+        if (it.GetHealthEffect() != 0)
+            cout <<" | Health: "<< it.GetHealthEffect();
+        if (it.GetAttackEffect() != 0)
+            cout <<" | Attack: "<< it.GetAttackEffect();
+    }
+
+}
 void player::PrintStatus() {
     cout << "\n--- PLAYER STATUS ---\n";
     cout << "Name: " << name << "\n";
     cout << "Health: " << health << "\n";
     cout << "Lives: " << lives << "\n";
     cout << "Attack Power: " << attack_power << "\n";
-
-    cout << "Inventory: ";
+    cout << "Inventory: "<<"\n";
+    cout<<"Score: "<<score<<"\n";
     if (inventory.empty()) {
         cout << "No item in inventory!";
     } else {
@@ -111,10 +134,9 @@ void player::PrintStatus() {
     }
     cout << "\n";
 }
-
 void player::DisplayGreetings() {
-    cout << "\n--- Welcome " << name << " to the Magic World of Gumball! ---\n";
-    cout << "--- Your mission is to escape while you still have lives! ---\n";
+    cout << "\n Welcome " << name << " to the Magic World of Gumball!\n";
+    cout << "Your mission is to escape while you still have lives! \n";
 }
 int ValidChoice(int min, int max) {
     int choice;
@@ -144,6 +166,7 @@ GameState player::toGameState(int scenarioID) const {
     state.lives = lives;
     state.attack_power = attack_power;
     state.scenarioID = scenarioID;
+    state.score=score;
     for (const auto& it : inventory)
         state.inventory.push_back(it.GetName());
 
@@ -154,6 +177,7 @@ void player::fromGameState(const GameState& state) {
     health = state.health;
     lives = state.lives;
     attack_power = state.attack_power;
+    score=state.score;
     inventory.clear();
     for (const auto& itemName : state.inventory)
         inventory.push_back(item(itemName, "Unknown", 0, 0));

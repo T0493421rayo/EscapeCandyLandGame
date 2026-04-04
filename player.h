@@ -23,6 +23,7 @@ private:
     bool crystal_ball;
     bool potion_juice;
     vector<item> inventory;
+    int score;
 public:
     player(string name);
     string GetName() const;
@@ -38,6 +39,8 @@ public:
     void PrintStatus();
     void DisplayGreetings();
     string GetName();
+    int GetScore() const;
+    void AddScore(int amount);
     void SetName(const std::string& newName);
     void SetHealth(int h);
     void SetAttackPower(int a);
@@ -45,7 +48,7 @@ public:
     void SetInventory(const std::vector<item>& inv);
     GameState toGameState(int scenarioID) const;
     void fromGameState(const GameState& state);
-
+    void ShowInventory() const;
 
 
 };

@@ -21,6 +21,8 @@ int CombatScenario::run(player &p) {
     while (p.GetHealth() > 0 && enemyHealth > 0) {
         int playerDamageStats = p.GetAttack() + attackModifier;
         int enemyDamageStats = enemyAttack;
+
+
         //w3school(n.d)
         int playerDamage = playerDamageStats + (rand() % 6 - 2);
         int enemyDamage  = enemyDamageStats + (rand() % 6 - 2);
@@ -28,14 +30,16 @@ int CombatScenario::run(player &p) {
         if (enemyDamage < 0) enemyDamage = 0;
         enemyHealth -= playerDamage;
         p.TakeDamage(enemyDamage);
+
         cout << "Your strike caused " << playerDamage << " damage.\n";
         cout << enemyName << " strike caused " << enemyDamage << " damage.\n";
         if (p.GetHealth() <= 0) {
             cout << "\nYou were defeated!\n";
-            return GetNext(choice);   // still branches correctly
+            return GetNext(choice);
         }
     }
-    cout << "\nYou defeated the " << enemyName << "!\n";
+    cout << "\nYou defeated the " << enemyName << "+10 Score!\n";
+    p.AddScore(10);
 
-    return GetNext(choice);  // branch after combat
+    return GetNext(choice);
 }
