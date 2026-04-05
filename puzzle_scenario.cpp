@@ -16,7 +16,6 @@ PuzzleScenario::PuzzleScenario(const std::string &t,int minC,int maxC,void (*eff
 
 int PuzzleScenario::run(player &p) {
     cout << text << "\n";
-    cout << "Enter your answer:\n";
     int choice = ValidChoice(minChoice, maxChoice);
     puzzleEffect(choice, p);
     return GetNext(choice);

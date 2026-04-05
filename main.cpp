@@ -12,23 +12,9 @@ int main() {
     int choice;
     cout << "1. New Game\n";
     cout << "2. Load Game\n";
-    cout << "Choose an option: ";
+    choice=ValidChoice(1,2);
 
-    //Programiz(n.d)
-    try {
-        cin >> choice;
-        if (cin.fail()) {
-            throw runtime_error("Invalid input type");
-        }
-    }
-    catch (const exception& e) {
-        cout << "Input error: " << e.what() << "\n";
-        cout << "Defaulting to New Game.\n";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        choice = 1;
-    }
-    cin.ignore();
+
 
     GameState loadedState;
     string name;
