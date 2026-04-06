@@ -11,30 +11,33 @@ void WhisperingBridgeEffect(int choice, player &p) {
     if (choice == 1) {
         cout << "Correct! +5 attack points.\n";
         p.IncreaseAttack(5);
+        p.AddScore(5);
     } else {
         cout << "Wrong! You fall into a swamp. -10 health.\n";
         p.TakeDamage(10);
-        p.AddScore(5);
+
     }
 }
 void MathsPuzzleEffect(int choice, player &p) {
     if (choice == 1) {
         cout << "Correct! +5 attack points.\n";
         p.IncreaseAttack(5);
+        p.AddScore(5);
     } else {
         cout << "Wrong! Lightning strikes you! -10 health.\n";
         p.TakeDamage(10);
-        p.AddScore(5);
+
     }
 }
 void AnagramPuzzleEffect(int choice, player &p) {
     if (choice == 1) {
         cout << "Correct! +5 attack points.\n";
         p.IncreaseAttack(5);
+        p.AddScore(5);
     } else {
         cout << "Wrong! Arrow hits you! -10 health.\n";
         p.TakeDamage(10);
-        p.AddScore(5);
+
     }
 }
 void NaturePuzzleEffect(int choice, player &p) {

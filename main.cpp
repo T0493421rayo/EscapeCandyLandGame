@@ -11,7 +11,7 @@ int main() {
     cout << "Welcome to the Magic World of Gumball!\n";
     int choice;
     cout << "1. New Game\n";
-    cout << "2. Load Game\n";
+    cout << "2. Load/Resume previous Game\n";
     choice=ValidChoice(1,2);
 
 
