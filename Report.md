@@ -201,12 +201,8 @@ Item collection flowchart
 <style>
 </style>
 
- 
-
 <style>
 </style>
-
-
 
 **Technical Elements**
 
@@ -259,11 +255,24 @@ access to the private attributes from other classes.
 
 
 
+**Evaluation**
 
+The IY453 Coursework involved working on a story-driven text-based
+adventure game which includes various story scenarios, combat scenarios, puzzle
+scenario and item collection scenarios. During this project, I was able to meet
+a good amount of the program specification, such as the binary choices for the user
+interface, creation of a cohesive game world with connections between each scenario,
+a score system that updates throughout the gameplay based on the user’s
+interaction.
 
+Despite coverage of the program’s major functionalities, the
+program is still at a point where it doesn’t fully show a developed game
+program, which I had initially planned at the start of the program, causing issues
+relating to the user’s interface and programming practice.
 
-
-
+The program has various strengths. One of which is the ability
+of the gaming program to link each binary scenarios to be coherently linked to each
+other using the 
 
 # References
 
