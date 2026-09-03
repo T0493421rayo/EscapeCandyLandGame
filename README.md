@@ -324,6 +324,18 @@ Potential improvements include:
 * Expanding automated testing
 * Improving the user interface and gameplay feedback
 * Adding additional branching paths and endings
+## Screenshots
+<img width="643" height="207" alt="Screenshot 2026-09-03 160521" src="https://github.com/user-attachments/assets/82bd2344-3b1b-4004-b7ce-90f0d0af583c" />
+<img width="452" height="215" alt="Screenshot 2026-09-03 160542" src="https://github.com/user-attachments/assets/202ab1fb-e008-41db-8c51-e298da4673f7" />
+<img width="348" height="207" alt="Screenshot 2026-09-03 160611" src="https://github.com/user-attachments/assets/cc624823-9a66-4faa-a553-d1df72c7d58a" />
+<img width="321" height="202" alt="Screenshot 2026-09-03 160559" src="https://github.com/user-attachments/assets/13be3a11-7d9c-4a98-9892-9bc43ea449de" />
+
+
+
+
+
+
+
 
 ## Author
 
